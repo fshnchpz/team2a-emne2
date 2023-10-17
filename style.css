@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100dvw;
+    height: 100dvh;
+
+    user-select: none;
+}
+
+/*Bakgrunnsbildet div*/
+.topMainBackgroundImage {
+    width: 100%;
+    height: 30%;
+
+    margin-top: 0;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Bakgrunnsbildet*/
+img {
+    margin-top: -25%;
+}
+
+/*Logg inn knappen*/
+.topMainLogInBtn {
+    background-color: rgba(5, 77, 5, 0.712);
+    color: white;
+
+    width: fit-content;
+
+    border: none;
+    border-radius: 10px;
+
+    margin: 0.5% 0 0 0.5%;
+    padding: 0.4% 0.7% 0.5% 0.4%; /*w,d,s,a*/
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Helvetica;
+    position: fixed;
+
+    display: flex;
+    cursor: pointer;
+}
+
+/*Logg inn knappen når du hovrer over*/
+.topMainLogInBtn:hover {
+    background-color: rgba(51, 156, 51, 0.712);
+}
+
+/*Boksen bak TUR logo*/
+.topLogoBackgroundBox {
+    width: 219px;
+    height: 112px;
+    padding: 20px 0 0 35px;
+    background: #4c7a34d7;
+    border-radius: 22px 4px 22px 4px;
+    position: fixed;
+}
+
+/*TUR logo*/
+.topMainLogo {
+    width: 187px;
+    height: 110px;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: Helvetica;
+    font-size: 80px;
+    text-align: center;
+}
+
+/*Hele linjen med knapper under bakgrunnsbildet*/
+.topMainPagesBtns {
+    background-color: rgb(101, 156, 101);
+    
+    display: flex;
+    justify-content: flex-start;
+}
+
+/*Hver knapp i linjen under bakgrunnsbildet*/
+.topMainPagesBtns>div {
+    background-color: rgb(62, 110, 62);
+    color: white;
+    text-align: center;
+    padding: 0.5%;
+    width: 200px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/*Når du hovrer over hver knapp under bakgrunnsbildet*/
+.topMainPagesBtns>div:hover {
+    background-color: rgb(129, 201, 129);
+    color: black;
+}
+
+/*Spesifikt bruker knappen under bakgrunnsbildet*/
+.topMainPageAccountBtn {
+    position: fixed;
+    right: 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/*Account icon'et*/
+.material-symbols-outlined {
+    color: white;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+/*Når du hovrer over account icon'et*/
+.material-symbols-outlined:hover {
+    color: black;
+}
