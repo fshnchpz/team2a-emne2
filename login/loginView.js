@@ -5,6 +5,7 @@ function loginSide() {
     document.getElementById('app').innerHTML =/*HTML*/`
     <div class="loginAndButtons">
         <div class="login">
+            <img src="images/TUR_Project_Supervised_User_Circle_Icon_1.png" alt="logo">
             <input id="username" onchange= "loginInput()" type="text" placeholder="Brukernavn:">
             <input id="password" onchange= "loginInput()" type="text" placeholder="Passord:">
         </div>
