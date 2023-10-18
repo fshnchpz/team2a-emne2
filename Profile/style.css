@@ -1,0 +1,56 @@
+/*mitt*/
+.container {
+    height: fit-content;
+    margin: 2%;
+}
+
+.profileBtns {
+    display: flex;
+    justify-content: space-between;
+margin-bottom: 2%;
+}
+
+.editProfileBtn {
+    font-size: x-large;
+    background-color: #72BB53;
+    color: #ffffff;
+    padding: 0.5% 1% 0.5% 1%;
+    border-radius: 10px;
+}
+
+.editProfileBtn:hover {
+    background-color: #8fdd6e;
+    color: black;
+}
+
+#dropdown {
+    border-radius: 10px;
+    font-size: large;
+    height: 30px;
+    width: 150px;
+    background: linear-gradient(to right,
+            #ffffff 0%,
+            #ffffff 85%,
+            #dddddd 85%,
+            #dddddd 100%);
+}
+
+#content {
+    display: none;
+}
+
+.content {
+    border: 1px solid black;
+    height: 300px;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
+    padding: 4%;
+    overflow: auto;
+    row-gap: 10%;
+}
+
+.tur {
+    border: 1px solid black;
+    width: 300px;
+    height: 400px;
+}

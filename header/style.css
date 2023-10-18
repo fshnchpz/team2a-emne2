@@ -40,6 +40,8 @@
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+
+    cursor: pointer;
 }
 .LoginBTN_position {
     position: relative;
@@ -89,7 +91,7 @@
     font-size: 80px;
     text-align: center;
 
-    
+    cursor: pointer;
 }
 
 /*Hele linjen med knapper under bakgrunnsbildet*/
@@ -142,6 +144,8 @@
 	border-style: solid;
     border-color: #fff;
 	border-radius: 30px;
+
+    cursor: pointer;
 }
 .user_content {
     display: flex;
