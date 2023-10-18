@@ -1,7 +1,8 @@
 let tempUserName = "";
 let tempPassword = "";
 
-function loginSide() {
+function loginSide()
+{
     document.getElementById('app').innerHTML =/*HTML*/`
     <div class="loginAndButtons">
         <div class="login">
@@ -16,25 +17,39 @@ function loginSide() {
     </div>`;
 }
 
-function loginInput() {
+function loginInput()
+{
     tempUserName = document.getElementById('username').value;
     tempPassword = document.getElementById('password').value;
 }
 
-function createUser() {
+function createUser()
+{
     document.getElementById('app').innerHTML =/*HTML*/`
-
 
 `;
 }
 
-function logIn() {
+function logIn()
+{
     tempUserName
     tempPassword
 }
 
-
-
+// når man trykker på logginknapp
+function tryToLoggIn()
+{
+    if (model.app.currentUser == '')
+    {
+        loginSide() //fjernes senere
+        model.app.currentPage = "login"
+    }
+    else
+    {
+        model.app.currentUser = '';
+        getHTML_header();
+    }
+}
 
 // model.data.users[{
 //     admin: false,           //boolean
