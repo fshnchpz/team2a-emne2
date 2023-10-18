@@ -1,39 +1,36 @@
-let tempUserName = "";
-let tempPassword = "";
-
-function loginSide()
-{
+function loginSide() {
     document.getElementById('app').innerHTML =/*HTML*/`
     <div class="loginAndButtons">
-        <div class="login">
             <img src="images/TUR_Project_Supervised_User_Circle_Icon_1.png" alt="logo">
+            <br>
+            <br>
             <input id="username" onchange= "loginInput()" type="text" placeholder="Brukernavn:">
+            <br>
             <input id="password" onchange= "loginInput()" type="text" placeholder="Passord:">
-        </div>
-        <div class="loginButtons">
+            <br>
             <button onclick="createUser()">Opprett bruker</button>
-            <button onclick="logIn()">Logg inn</button>
-        </div>
+            <br>
+            <button class="logingKnapp" onclick="logIn()">Logg inn</button>
     </div>`;
 }
 
-function loginInput()
-{
-    tempUserName = document.getElementById('username').value;
-    tempPassword = document.getElementById('password').value;
+function loginInput() {
+    model.input.loginDetails.username = document.getElementById('username').value;
+    model.input.loginDetails.password = document.getElementById('password').value;
 }
 
-function createUser()
-{
+function createUser() {
     document.getElementById('app').innerHTML =/*HTML*/`
-
+    
 `;
 }
 
-function logIn()
-{
-    tempUserName
-    tempPassword
+function logIn() {
+    if (model.data.users.username == model.input.loginDetails.username) {
+        if (model.data.users.password == model.input.loginDetails.password) {
+            model.app.currentUser = model.data.users.username;
+        }
+    }
 }
 
 // når man trykker på logginknapp
