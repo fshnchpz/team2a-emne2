@@ -1,0 +1,49 @@
+.tur_Container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.tur_Page {
+    display: flex;
+    flex-direction: column;
+
+	min-width: 1128px;
+	max-width: 1128px;
+	min-height: 500px;
+	padding: 1.5rem;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: #ffffff;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.tur_Image {
+    height: 537px;
+    background: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image-300x225.png') center no-repeat;
+    background-color: rgb(230, 230, 230);
+    border-radius: 1rem;
+    margin: 0 2rem 0 2rem;
+}
+
+.tur_Name {
+    height: 40px;
+	color: #000000;
+	font-family: "Poppins";
+	font-weight: bold;
+	font-size: 26px;
+	text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /* background-color: rgb(182, 228, 255); */
+}
+
+.navn-p-tur {
+	width: 969px;
+	height: 40px;
+}
+
+.tur_Data {
+    height: 537px;
+    background-color: rgb(167, 255, 178);
+}
