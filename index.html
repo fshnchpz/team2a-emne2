@@ -7,75 +7,44 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="js/model.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/view.js"></script>
+
+    <!-- Profile -->
     <script src="js/Profilejs/profileController.js"></script>
     <script src="js/Profilejs/profileView.js"></script>
 
+    <!-- Header Script og Style -->
+    <link rel="stylesheet" href="header/style.css">
+    <script src="header/view.js"></script>
 
-
-    <!--  Account Icon  -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 
 </head>
 
-<body onload="updateView()">   <!--forandre tilbake senere til updateView() -->
-    <tr>
-        <th>
-            <!-- Logg inn knappen -->
-            <div id="topMainLogInBtn" class="topMainLogInBtn" onclick=""></div>
-        </th>
-    </tr>
-    <tr>
-        <!-- Bakgrunnsbildet div -->
-        <div class="topMainBackgroundImage">
-            <!-- Bakgrunnsbildet -->
-            <img src="images/background.png">
-            <!-- Logoboks -->
-            <div class="topLogoBackgroundBox">
-                <!-- Logo -->
-                <div class="topMainLogo" onclick="location.reload()">TUR</div>
-            </div>
+<body onload="updateView()">
+<div class="pageContainer">
+    <div id="header" class="header"></div>
+        <!-- Javascript -->
+        <div id="app">
+            
         </div>
-    </tr>
-    <tr>
-        <!-- Linjen med knapper under bakgrunnsbildet -->
-        <div class="topMainPagesBtns">
-            <!-- Turer knappen -->
-            <div>Turer</div>
-            <!-- Profiler knappen -->
-            <div>Profil</div>
-            <!-- Medlemmer knappen -->
-            <div>Medlemmer</div>
-            <!-- Bruker knappen + account icon -->
-            <div id="topMainPageAccountBtn" class="topMainPageAccountBtn">&nbsp<span
-                    class="material-symbols-outlined">account_circle</span></div>
-        </div>
-    </tr>
-    <!-- Javascript -->
-    <div id="app"></div>
+</div>
+
+<script>
+    function updateView() {
+
+        //Henter all HTML og kjører javascript for å laste inn Header
+        // getHTML_header() er en funksjon som eksisterer i "header/view.js"
+        document.getElementById('header').innerHTML = getHTML_header();
 
 
-    <script>
-        let login = document.getElementById('topMainLogInBtn');
-        let user = document.getElementById('topMainPageAccountBtn');
-
-        // Dette skjekker om brukeren er logget inn og vil derfor endre om det står logg inn eller logg ut.
-        if (model.app.currentUser === '') {
-            login.innerHTML = '<span class="material-symbols-outlined">account_circle</span> &nbsp Logg inn';
-        } else {
-            login.innerHTML = '<span class="material-symbols-outlined">account_circle</span> &nbsp Logg ut';
-        };
-
-        // Dette skjekker om brukeren er logget inn og vil derfor endre bruker som står på main linjen bruker/navn.
-        if (model.app.currentUser !== '') {
-            user.innerHTML = model.app.currentUser + '&nbsp <span class="material-symbols-outlined">account_circle</span>';
-        } else {
-            user.innerHTML = 'Bruker &nbsp <span class="material-symbols-outlined">account_circle</span>';
-        };
-
-    </script>
+    }
+</script>
 </body>
 
 </html>
