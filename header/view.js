@@ -20,7 +20,7 @@ function getHTML_header() {
     HTML += /*HTML*/`
         
         <!-- Logg inn knappen -->
-        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="">
+        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="loginSide()">
             <div class="LoginBTN_position">
                 <img src="../images/TUR_Project_Account_Circle_Icon_2.png" class="acc_ico">
                 <div id="login_txt" class="login_txt">${LoginText}
