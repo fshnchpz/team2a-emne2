@@ -5,7 +5,9 @@
     height: 400px;
 
     background-image: url("../images/background.png");
-    background-position: right bottom 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right 0 bottom 0;
 
     margin-top: 0;
 
