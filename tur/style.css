@@ -3,13 +3,15 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    margin-bottom: 5rem;
 }
 
 .tur_Page {
     display: flex;
     flex-direction: column;
-
-	min-width: 1128px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+	min-width: 900px;
 	max-width: 1128px;
 	min-height: 500px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -37,26 +39,31 @@
 }
 
 .tur_Data {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 2fr 1px 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
     min-height: 537px;
+    width: 100%;
     padding-bottom: 3rem;
     /* background-color: rgb(167, 255, 178); */
 }
 
 .tur_Data > .left {
-    width: 65%;
+    grid-area: 1 / 1 / 2 / 2;
 
 }
 .tur_Data > .right {
-    width: 35%;
+    grid-area: 1 / 3 / 2 / 4;
 }
 .tur_Data > .divider {
     background-color: #c0c0c0;
-    width: 1px;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+    grid-area: 1 / 2 / 2 / 3;
 }
+
+
+
 
 .tur_OmTur {
     display: flex;
@@ -193,4 +200,117 @@
 
 .extrainfo_box > .title {
 	font-weight: bold;
+}
+
+.right > .map {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.map > .map_image {
+    height: 360px;
+    width: 360px;
+    margin-bottom: 1rem;
+    background: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image-300x225.png') center no-repeat;
+    background-color: rgb(230, 230, 230);
+	border-color: #aaaaaa;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.map > .button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+	height: 32px;
+	padding: 0px 15px 0px 15px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: #4c7a34;
+	color: #ffffff;
+    border: none;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+
+.map > .button:hover {
+	background: #76b157;
+}
+
+.right > .markings {
+    margin-top: 7rem;
+}
+
+.markings > .marking_title  {
+	color: #000000;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 26px;
+	text-align: left;
+	margin: 8px;
+}
+
+.markings > .marking_box {
+    display: flex;
+	background-color: #f7f6f6;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.squarebtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    margin-right: 0.3rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #444444;
+    border-radius: 7px;
+}
+
+.marking_box > .active {
+    background: #4c7a34;
+}
+
+.squarebtn > img {
+    user-select: none;
+    height: 80%;
+    width: 80%;
+}
+
+.squarebtn:hover {
+    background: #707070;
+}
+.marking_box > .active:hover {
+    background: #79b858 !important;
+}
+
+@media screen and (max-width: 900px) {
+    .tur_Data {
+        display: flex;
+        flex-direction: column;
+    }
+    .right {
+        margin-top: 2rem;
+    }
+    .divider { display: none; }
+
+    .tur_OmTur, .details, .description, .extrainfo_title, .extrainfo_box {
+        padding-right: 70px;
+    }
+
+    .markings {
+        width: 100%;
+    }
+    .marking_title, .marking_box {
+        padding-left: 70px !important;
+    }
+
 }
