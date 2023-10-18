@@ -6,7 +6,8 @@ function getHTML_header() {
     let CurrentUserText = ``;
 
     // Dette skjekker om brukeren er logget inn og vil derfor endre om det står logg inn eller logg ut.
-    if (model.app.currentUser === '') {
+    if (model.app.currentUser === '')
+    {
         LoginText = 'Logg inn';
         CurrentUserText = `
         <div class="user_content">
@@ -14,15 +15,16 @@ function getHTML_header() {
             <div class="acc_ico_user"/><div>
         </div>
         `;
-    } else {
+    } else
+    {
         LoginText = 'Logg ut';
         CurrentUserText = model.app.currentUser + '';
     }
 
     HTML += /*HTML*/`
-        
+
         <!-- Logg inn knappen -->
-        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="loginSide()">
+        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="tryToLoggIn()">
             <div class="LoginBTN_position">
                 <img src="../images/TUR_Project_Account_Circle_Icon_2.png" class="acc_ico">
                 <div id="login_txt" class="login_txt">${LoginText}</div>
@@ -51,3 +53,4 @@ function getHTML_header() {
     `;
     document.getElementById('header').innerHTML = HTML;
 }
+

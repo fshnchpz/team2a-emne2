@@ -5,6 +5,7 @@ body {
     height: 100dvh;
 
     user-select: none;
+    background-color: #f2f2f2;
 }
 
 .pageContainer {
