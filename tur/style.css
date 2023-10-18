@@ -12,7 +12,6 @@
 	min-width: 1128px;
 	max-width: 1128px;
 	min-height: 500px;
-	padding: 1.5rem;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	background: #ffffff;
 	border-radius: 20px 20px 20px 20px;
@@ -23,7 +22,7 @@
     background: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image-300x225.png') center no-repeat;
     background-color: rgb(230, 230, 230);
     border-radius: 1rem;
-    margin: 0 2rem 0 2rem;
+    margin: 1rem 3rem 1rem 3rem;
 }
 
 .tur_Name {
@@ -33,17 +32,165 @@
 	font-weight: bold;
 	font-size: 26px;
 	text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     /* background-color: rgb(182, 228, 255); */
 }
 
-.navn-p-tur {
-	width: 969px;
-	height: 40px;
+.tur_Data {
+    display: flex;
+    flex-direction: row;
+    min-height: 537px;
+    padding-bottom: 3rem;
+    /* background-color: rgb(167, 255, 178); */
 }
 
-.tur_Data {
-    height: 537px;
-    background-color: rgb(167, 255, 178);
+.tur_Data > .left {
+    width: 65%;
+
+}
+.tur_Data > .right {
+    width: 35%;
+}
+.tur_Data > .divider {
+    background-color: #c0c0c0;
+    width: 1px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.tur_OmTur {
+    display: flex;
+    height: 40px;
+    margin-left: 70px;
+}
+
+.tur_OmTur > .text {
+    display: flex;
+    margin-right: auto;
+    color: #000000;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 26px;
+    text-align: left;
+}
+.tur_OmTur > .favorite {
+    display: flex;
+    margin-left: auto;
+    height: 34px;
+    width: 34px;
+    background: url('../images/Star_4.png') no-repeat;
+    background-size: cover;
+}
+
+.left > .details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.3rem;
+    padding-left: 70px;
+    background-color: #f7f6f6;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.details > .data_field {
+    height: 34px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.data_field > .text {
+    margin-left: 0.8rem;
+    color: #232323;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.location {
+    background: url("../images/Room_Icon_1.png");
+}
+.tur_type {
+    background: url("../images/Directions_Walk_Icon_1.png");
+}
+.measurement {
+    background: url("../images/Square_Foot_Icon_4.png");
+}
+.timeclock {
+    background: url("../images/Watch_Later_Icon_4.png");
+}
+.direction {
+    background: url("../images/Arrow_Right_Alt_Icon_1.png");
+}
+.calender {
+    background: url("../images/Calendar_Month_Icon_1.png");
+}
+.intensity {
+    background: url("../images/Data_Thresholding_Icon_1.png");
+}
+
+.data_field > .icon {
+    display: flex;
+    height: 28px;
+    width: 28px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.left > .description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    padding-left: 70px;
+}
+
+.description > .title {
+	color: #000000;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 26px;
+	text-align: left;
+}
+.description > .text {
+    padding-left: 0.5rem;
+	color: #232323;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.3;
+	text-align: left;
+}
+
+.left > .extrainfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.extrainfo > .extrainfo_title {
+	color: #000000;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 18px;
+	text-align: left;
+    padding-left: 70px;
+}
+
+.extrainfo > .extrainfo_box {
+    padding-left: 70px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+	background: #f7f6f6;
+	color: #000000;
+	font-family: "Poppins";
+	font-size: 14px;
+	line-height: 1.3;
+	text-align: left;
+}
+
+.extrainfo_box > .title {
+	font-weight: bold;
 }
