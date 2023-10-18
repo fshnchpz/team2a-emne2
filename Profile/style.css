@@ -35,10 +35,6 @@
             #dddddd 100%);
 }
 
-#content {
-    display: none;
-}
-
 .content {
     border: 1px solid black;
     height: 24dvh;
@@ -63,4 +59,26 @@
     border: 1px solid black;
     width: 300px;
     height: 400px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories>div {
+    background-color: #72BB53;
+    color: white;
+    border-radius: 10px;
+    width: 10dvw;
+    margin-right: 2dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+
+.categories>div:hover {
+    background-color: #98dd7b;
+    color: black;
 }

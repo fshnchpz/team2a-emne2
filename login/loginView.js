@@ -1,4 +1,9 @@
-function loginSide() {
+
+const usernameinput = model.input.loginDetails.username;
+const passwordinput = model.input.loginDetails.password;
+
+function loginSide()
+{
     document.getElementById('app').innerHTML =/*HTML*/`
     <div class="loginAndButtons">
             <img src="images/TUR_Project_Supervised_User_Circle_Icon_1.png" alt="logo">
@@ -10,27 +15,38 @@ function loginSide() {
             <br>
             <button onclick="createUser()">Opprett bruker</button>
             <br>
-            <button class="logingKnapp" onclick="logIn()">Logg inn</button>
+            <button onclick="logIn()">Logg inn</button>
     </div>`;
 }
 
-function loginInput() {
+function loginInput()
+{
     model.input.loginDetails.username = document.getElementById('username').value;
     model.input.loginDetails.password = document.getElementById('password').value;
 }
 
-function createUser() {
+function createUser()
+{
     document.getElementById('app').innerHTML =/*HTML*/`
     
 `;
 }
 
-function logIn() {
-    if (model.data.users.username == model.input.loginDetails.username) {
-        if (model.data.users.password == model.input.loginDetails.password) {
-            model.app.currentUser = model.data.users.username;
+function logIn()
+{
+    for (let index = 0; index < model.data.users.length; index++)
+    {
+        const element = model.data.users[index];
+        if (element.username == usernameinput)
+        {
+            if (element.password == passwordinput)
+            {
+                model.app.currentUser = element.name;
+            }
         }
     }
+    getHTML_header();
+    model.app.currentPage = "main";
 }
 
 // når man trykker på logginknapp
@@ -39,7 +55,8 @@ function tryToLoggIn()
     if (model.app.currentUser == '')
     {
         loginSide() //fjernes senere
-        model.app.currentPage = "login"
+        model.app.currentPage = "login";
+
     }
     else
     {
@@ -47,6 +64,8 @@ function tryToLoggIn()
         getHTML_header();
     }
 }
+
+
 
 // model.data.users[{
 //     admin: false,           //boolean

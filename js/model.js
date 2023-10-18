@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentUser: '', 
+        currentUser: '',
         currentPage: '', // main / trails / profile / users / login
         admin: '',
     },
@@ -38,15 +38,28 @@ const model = {
         mainPage: [{
             carouselIndex: 0,
         }],
-        users: [{
-            admin: false,           //boolean
-            name: '',
-            username: '',
-            password: '',
-            location: '',
-            favorites: [''],     //trip id
-            myTrips: [''],
-        },],
+        users:
+            [
+                {
+                    admin: false,           //boolean
+                    name: 'testnavn0',
+                    username: 'user0',
+                    password: '1234',
+                    location: '',
+                    favorites: [''],     //trip id
+                    myTrips: [''],
+                },
+                {
+                    admin: true,           //boolean
+                    name: 'testnavn1',
+                    username: 'user1',
+                    password: '1234',
+                    location: '',
+                    favorites: [''],     //trip id
+                    myTrips: [''],
+                },
+
+            ],
         trips: [{
             id: 0,
             name: '',
