@@ -4,7 +4,7 @@ function profileView() {
     let html = /*html*/ `
         <div class="container">
             <div class="profileBtns">
-                <select id="dropdown" name="dropdown" onchange="hideBlock()">
+                <select id="dropdown" name="dropdown" onchange="showBox()">
                     <option value="choose">Velg liste</option>
                     <option value="myFavorite">Mine favoritter</option>
                     <option value="myTrips">Mine turer</option>
@@ -12,18 +12,7 @@ function profileView() {
                 <div class="editProfileBtn">Rediger profil</div>
             </div>
             <div id="content">
-                <div class="content">
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                    <div class="tur"></div>
-                </div>
+                ${showBox}
             </div>
         </div>
     `;

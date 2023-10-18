@@ -1,3 +1,5 @@
+"use strict";
+
 function getHTML_header() {
     let HTML = ``;
     let LoginText = ``;
@@ -23,8 +25,7 @@ function getHTML_header() {
         <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="loginSide()">
             <div class="LoginBTN_position">
                 <img src="../images/TUR_Project_Account_Circle_Icon_2.png" class="acc_ico">
-                <div id="login_txt" class="login_txt">${LoginText}
-                </div>
+                <div id="login_txt" class="login_txt">${LoginText}</div>
             </div>
         </div>
         <!-- Bakgrunnsbildet div -->
