@@ -1,9 +1,9 @@
 "use strict";
 
-function hideBlock() {
+let html = '';
+
+function showBox() {
     if (document.getElementById('dropdown').value === 'choose') {
-        document.getElementById('content').style.display = 'none'
-    } else {
-        document.getElementById('content').style.display = 'block'
+        html = '';
     }
 }
