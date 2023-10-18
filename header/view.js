@@ -50,5 +50,4 @@ function getHTML_header() {
         </div>
     `;
     document.getElementById('header').innerHTML = HTML;
-    profileView();
 }
