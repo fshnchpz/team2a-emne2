@@ -1,31 +1,35 @@
+"use strict";
+
 function getHTML_header() {
     let HTML = ``;
-    let LoginText = ``; 
-    let CurrentUserText = ``; 
-    
-    // Dette skjekker om brukeren er logget inn og vil derfor endre om det står logg inn eller logg ut.
-    if (model.app.currentUser === '') {
-        LoginText = 'Logg inn';
-    } else {
-        LoginText = 'Logg ut';
-    }
+    let LoginText = ``;
+    let CurrentUserText = ``;
 
-    // Dette skjekker om brukeren er logget inn og vil derfor endre bruker som står på main linjen bruker/navn.
-    if (model.app.currentUser !== '') {
-        CurrentUserText = model.app.currentUser + '';
-    } else {
+    // Dette skjekker om brukeren er logget inn og vil derfor endre om det står logg inn eller logg ut.
+    if (model.app.currentUser === '')
+    {
+        LoginText = 'Logg inn';
         CurrentUserText = `
         <div class="user_content">
             <div class="user_text">Bruker</div>
             <div class="acc_ico_user"/><div>
         </div>
         `;
+    } else
+    {
+        LoginText = 'Logg ut';
+        CurrentUserText = model.app.currentUser + '';
     }
 
     HTML += /*HTML*/`
-        
+
         <!-- Logg inn knappen -->
-        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick=""><div class="LoginBTN_position"><img src="../images/TUR_Project_Account_Circle_Icon_2.png" class="acc_ico"></img><div id="login_txt" class="login_txt">${LoginText}</div></div></div>
+        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="tryToLoggIn()">
+            <div class="LoginBTN_position">
+                <img src="../images/TUR_Project_Account_Circle_Icon_2.png" class="acc_ico">
+                <div id="login_txt" class="login_txt">${LoginText}</div>
+            </div>
+        </div>
         <!-- Bakgrunnsbildet div -->
         <div class="topMainBackgroundImage">
             <!-- Bakgrunnsbildet -->
@@ -46,7 +50,7 @@ function getHTML_header() {
             <!-- Bruker knappen + account icon -->
             <div id="topMainPageAccountBtn" class="topMainPageAccountBtn">${CurrentUserText}</div>
         </div>
-    `; 
-
-    return HTML;
+    `;
+    document.getElementById('header').innerHTML = HTML;
 }
+
