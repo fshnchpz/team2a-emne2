@@ -16,7 +16,6 @@ function updateview()
         case 'login':
             loginSide()
             console.log('switch result:Login')
-            g
         case 'trips':
             etHTML_turViewMode();
             console.log('switch result:Trips')

@@ -71,13 +71,3 @@ function createUser()
 `;
 }
 
-
-// model.data.users[{
-//     admin: false,           //boolean
-//     name: '',
-//     username: '',
-//     password: '',
-//     location: '',
-//     favorites: [''],     //trip id
-//     myTrips: [''],
-//     },]
