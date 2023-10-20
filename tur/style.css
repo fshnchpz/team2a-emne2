@@ -20,6 +20,8 @@
 }
 
 .tur_Image {
+    display: flex;
+    justify-content: center;
     height: 537px;
     border-radius: 1rem;
     margin: 1rem 3rem 1rem 3rem;
