@@ -43,7 +43,7 @@ const model = {
             [
                 {
                     admin: false,           //boolean
-                    name: 'testnavn0',
+                    name: 'Lars Monsen',
                     username: 'user0',
                     password: '1234',
                     location: '',
@@ -52,7 +52,7 @@ const model = {
                 },
                 {
                     admin: true,           //boolean
-                    name: 'testnavn1',
+                    name: 'Chuck Norris',
                     username: 'user1',
                     password: '1234',
                     location: '',
