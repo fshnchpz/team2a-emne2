@@ -56,14 +56,13 @@ function tryToLoggIn()
 {
     if (model.app.currentUser == '')
     {
-        loginSide() //fjernes senere
         model.app.currentPage = "login";
     }
     else
     {
         model.app.currentUser = '';
-        getHTML_header();
     }
+    updateview()
 }
 
 function createUser()
