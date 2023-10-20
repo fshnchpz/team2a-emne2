@@ -1,10 +1,11 @@
 .loginAndButtons {
     /* position: fixed; */
     z-index: -1;
-    margin-top: -20%;
-    background-color: whitesmoke;
-    width: 100dvw;
-    height: 100dvh;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    /* background-color: whitesmoke; */
+    /* width: 100dvw;
+    height: 100dvh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,4 +41,8 @@ input {
     font-weight: 400;
     font-size: 14px;
     text-align: left;
+}
+
+.errorMsg {
+    color: red;
 }

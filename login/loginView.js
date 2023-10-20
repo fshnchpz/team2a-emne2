@@ -1,6 +1,5 @@
 
-const usernameinput = model.input.loginDetails.username;
-const passwordinput = model.input.loginDetails.password;
+let errorMessage = '';
 
 function loginSide()
 {
@@ -9,10 +8,11 @@ function loginSide()
             <img src="images/TUR_Project_Supervised_User_Circle_Icon_1.png" alt="logo">
             <br>
             <br>
-            <input id="username" onchange= "loginInput()" type="text" placeholder="Brukernavn:">
+            <input id="username" onchange= "loginInput()" value="${model.input.loginDetails.username}" type="text" placeholder="Brukernavn:">
             <br>
-            <input id="password" onchange= "loginInput()" type="text" placeholder="Passord:">
+            <input id="password" onchange= "loginInput()" value="${model.input.loginDetails.password}" type="password" placeholder="Passord:">
             <br>
+            <div class="errorMsg">${errorMessage}</div><br>
             <button onclick="createUser()">Opprett bruker</button>
             <br>
             <button onclick="logIn()">Logg inn</button>
@@ -25,28 +25,30 @@ function loginInput()
     model.input.loginDetails.password = document.getElementById('password').value;
 }
 
-function createUser()
-{
-    document.getElementById('app').innerHTML =/*HTML*/`
-    
-`;
-}
-
 function logIn()
 {
-    for (let index = 0; index < model.data.users.length; index++)
+    const username = model.input.loginDetails.username;
+    const password = model.input.loginDetails.password;
+    for (const user of model.data.users)
     {
-        const element = model.data.users[index];
-        if (element.username == usernameinput)
+        if (user.username === username && user.password === password)
         {
-            if (element.password == passwordinput)
-            {
-                model.app.currentUser = element.name;
-            }
+            model.input.loginDetails.username = '';
+            model.input.loginDetails.password = '';
+            model.app.currentUser = user.name;
+            model.app.currentPage = "main";
+            getHTML_header();
+            document.getElementById('app').innerHTML = ''; //her kommer main page senere
+            errorMessage = '';
+            break;
+        }
+        else
+        {
+            errorMessage = 'Ditt brukernavn eller passord er feil';
+            console.log("username and/or password is wrong");
+            loginSide();
         }
     }
-    getHTML_header();
-    model.app.currentPage = "main";
 }
 
 // når man trykker på logginknapp
@@ -56,7 +58,6 @@ function tryToLoggIn()
     {
         loginSide() //fjernes senere
         model.app.currentPage = "login";
-
     }
     else
     {
@@ -65,6 +66,11 @@ function tryToLoggIn()
     }
 }
 
+function createUser()
+{
+    document.getElementById('app').innerHTML =/*HTML*/`   
+`;
+}
 
 
 // model.data.users[{
