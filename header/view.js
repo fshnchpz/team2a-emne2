@@ -18,7 +18,12 @@ function getHTML_header() {
     } else
     {
         LoginText = 'Logg ut';
-        CurrentUserText = model.app.currentUser + '';
+        CurrentUserText = `
+        <div class="user_content">
+            <div class="user_text">${model.app.currentUser}</div>
+            <div class="acc_ico_user"/><div>
+        </div>
+        `;
     }
 
     HTML += /*HTML*/`
