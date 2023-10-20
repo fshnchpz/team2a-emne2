@@ -3,6 +3,7 @@ const model = {
         currentUser: '',
         currentPage: '', // main / trails / profile / users / login
         admin: '',
+        currentTrip: null,
     },
     input: {
         sorting: {
@@ -46,8 +47,8 @@ const model = {
                     username: 'user0',
                     password: '1234',
                     location: '',
-                    favorites: [''],     //trip id
-                    myTrips: [''],
+                    favorites: [],     //trip id
+                    myTrips: [],
                 },
                 {
                     admin: true,           //boolean
@@ -55,8 +56,8 @@ const model = {
                     username: 'user1',
                     password: '1234',
                     location: '',
-                    favorites: [''],     //trip id
-                    myTrips: [''],
+                    favorites: [0],     //trip id
+                    myTrips: [],
                 },
 
             ],
