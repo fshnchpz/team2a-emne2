@@ -1,7 +1,7 @@
 const model = {
     app: {
         currentUser: '',
-        currentPage: '', // main / trails / profile / users / login
+        currentPage: '', // main / trails / profile / users / login/createUser
         admin: '',
         currentTrip: null,
     },
@@ -31,8 +31,13 @@ const model = {
             bike: false,           //boolean
         },
         loginDetails: {
-            username: '',
+            admin: false,
+            name: '',
+            userName: '',
             password: '',
+            location: '',
+            favorites: [],
+            myTrips: [],
         },
     },
     data: {
@@ -52,7 +57,7 @@ const model = {
                 },
                 {
                     admin: true,           //boolean
-                    name: 'Chuck Norris',
+                    name: 'Anita',
                     username: 'user1',
                     password: '1234',
                     location: '',
