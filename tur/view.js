@@ -13,7 +13,7 @@ function getHTML_turViewMode() {
     const trip = model.data.trips[model.app.currentTrip];
     let isFavorite = false;
     const curUser = model.data.users.find(User => {
-        return User.name === model.app.currentUser;
+        return User.username === model.app.currentUser;
     });
 
 
@@ -108,7 +108,7 @@ function getHTML_turViewMode() {
 
 function dataExample_generate() {
     model.app.currentTrip = 0;
-    model.app.currentUser= 'testnavn1';
+    model.app.currentUser= 'user1';
 
     //nye modell properties:
     // google_link: '',    //googlemap link
@@ -150,6 +150,7 @@ function getMapIMG() {
         return '';
     }
 }
+
 function getTripIMG() {
     const trip = model.data.trips[model.app.currentTrip];
     if (trip.image != '') {
