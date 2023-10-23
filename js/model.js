@@ -20,15 +20,16 @@ const model = {
             location: '',
             distance: 0,        //number
             time: 0,            //number
-            image: '',          //src/link
+            image: [],          //src/link
             season: '',
             accessability: '',
             map: '',            //src/link
-            difficulty: 0,      //number
+            difficulty: null,      //number
             parking: false,         //boolean
             walking: false,        //boolean
             wheelchair: false,      //boolean
             bike: false,           //boolean
+            google_link: '',     //src/link
         },
         loginDetails: {
             admin: false,
@@ -73,7 +74,7 @@ const model = {
             location: '',
             distance: 0,        //number
             time: 0,            //number
-            image: '',          //src/link
+            image: [],          //src/link
             season: '',
             accessability: '',
             map: '',            //src/link
@@ -82,6 +83,7 @@ const model = {
             walking: false,        //boolean
             wheelchair: false,      //boolean
             bike: false,           //boolean
+            google_link: '',     //src/link
             creator: '',
             approved: false,
         }],

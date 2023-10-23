@@ -25,6 +25,7 @@
     height: 537px;
     border-radius: 1rem;
     margin: 1rem 3rem 1rem 3rem;
+    overflow: hidden;
 }
 
 .tripIMG {
@@ -129,6 +130,7 @@
     font-size: 16px;
     line-height: 1.3;
     text-align: left;
+    width: 90%;
 }
 
 .location {
@@ -230,7 +232,6 @@
     height: 360px;
     width: 360px;
     margin-bottom: 1rem;
-    background: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image-300x225.png') center no-repeat;
     background-color: rgb(230, 230, 230);
     border-radius: 20px;
 }
@@ -239,7 +240,6 @@
     height: 360px;
     width: 360px;
     margin-bottom: 1rem;
-    background: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image-300x225.png') center no-repeat;
     background-color: rgb(230, 230, 230);
     border-radius: 20px;
 }
@@ -260,6 +260,12 @@
 	font-weight: 400;
 	font-size: 14px;
 	text-align: center;
+}
+
+.tur_ImageUpload {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .map > .button:hover {
@@ -315,6 +321,76 @@
 .marking_box > .active:hover {
     background: #79b858 !important;
 }
+
+
+.tur_inputText {
+	border-color: #232323;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 3px;
+}
+.tur_inputText:focus {
+	border-color: #2e942e;
+}
+
+.description > textarea {
+    resize: none;
+}
+
+.input_googlelink {
+    color: #232323;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.3;
+    text-align: left;
+    width: 90%;
+}
+
+.input_mapImg {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+	height: 32px;
+	padding: 0px 15px 0px 15px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: #4c7a34;
+	color: #ffffff;
+    border: none;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+.input_mapImg:hover {
+	background: #72af52;
+}
+
+.input_tripImg {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+	height: 32px;
+	padding: 0px 15px 0px 15px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: #4c7a34;
+	color: #ffffff;
+    border: none;
+	border-radius: 3px 3px 3px 3px;
+	font-family: "Poppins";
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+    min-width: 10rem;
+    width: 50%;
+}
+.input_tripImg:hover {
+	background: #72af52;
+}
+
 
 @media screen and (max-width: 900px) {
     .tur_Data {
