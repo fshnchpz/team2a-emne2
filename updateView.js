@@ -6,16 +6,17 @@ function updateview()
     switch (hvasomhelst)
     {
         case 'main':
-            console.log('switch result:Main')
             document.getElementById('app').innerHTML = '' //erstattes siden
+            console.log('switch result:Main')
             break;
         case 'profile':
-            console.log('switch result:Profile')
             profileView();
+            console.log('switch result:Profile')
             break;
         case 'login':
             loginSide()
             console.log('switch result:Login')
+            break;
         case 'trips':
             etHTML_turViewMode();
             console.log('switch result:Trips')
