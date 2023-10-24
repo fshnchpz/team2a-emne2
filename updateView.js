@@ -14,12 +14,16 @@ function updateview()
             console.log('switch result:Profile')
             break;
         case 'login':
-            loginSide()
+            loginSide();
             console.log('switch result:Login')
             break;
         case 'trips':
             etHTML_turViewMode();
             console.log('switch result:Trips')
+            break;
+        case 'createUser':
+            createUserpage();
+            console.log('switch result:createUser')
             break;
         default:
             console.log('switch result:default')

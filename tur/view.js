@@ -1,6 +1,9 @@
 
 "use strict"
 
+
+
+
 function getHTML_turViewMode() {
     let HTML = ``;
     let confirm = 'godkjent';
@@ -16,6 +19,17 @@ function getHTML_turViewMode() {
     const curUser = model.data.users.find(User => {
         return User.username === model.app.currentUser;
     });
+
+    let existingUsers = 0;
+    model.users.forEach(User => {
+        if (User.username == model.input.loginDetails.username) {
+            existingUsers++;
+        }
+    });
+
+    if (existingUsers > 0) {
+        console.log('Already have this user');
+    }
 
 
     if (curUser.favorites.includes(trip.id)) {
@@ -39,136 +53,205 @@ function getHTML_turViewMode() {
             <div class="tur_Image">${getTripIMG()}</div>
             <div class="tur_Name">${trip.name}</div>
 
-            <div class="tur_Data">
-                <div class="left">
+                <div class="tur_Data">
+                    <div class="left">
 
-                    <div class="tur_OmTur">
-                        <div class="text">Om turen</div>
-                        <div class="${isFavorite ? 'isFavorite' : 'favorite'}"></div>
+                        <div class="tur_OmTur">
+                            <div class="text">Om turen</div>
+                            <div class="${isFavorite ? 'isFavorite' : 'favorite'}"></div>
+                        </div>
+
+                        <div class="details">
+                            <div class="data_field">
+                                <div class="icon location"></div>
+                                <div class="text">${trip.location}</div>
+                            </div>
+                            <div class="data_field">
+                                <div class="icon tur_type"></div>
+                                <div class="text">${trip.accessability}</div>
+                            </div>
+                            <div class="data_field">
+                                <div class="icon measurement"></div>
+                                <div class="text">${trip.distance} km</div>
+                            </div>
+                            <div class="data_field">
+                                <div class="icon timeclock"></div>
+                                <div class="text">${trip.time} minutter</div>
+                            </div>
+                            <div class="data_field">
+                                <div class="icon calender"></div>
+                                <div class="text">Sesong fra: ${trip.season}</div>
+                            </div>
+                            <div class="data_field">
+                                <div class="icon intensity"></div>
+                                <div class="text">Vanskelighet grad: ${trip.difficulty}</div>
+                            </div>
+                        </div>
+
+                        <div class="description">
+                            <div class="title">Beskrivelse</div>
+                            <div class="text"><span>${trip.about}</span></div>
+                        </div>
+
+                        <!-- Unøvdvendig, har ingen sted i modell til å lagre eller laste dette
+                        <div class="extrainfo">
+                            <div class="extrainfo_title">Adkomst og parkering</div>
+                            <div class="extrainfo_box">
+                                <div class="title">Adkomst med egen bil</div>
+                                <div class="text">Fra garasjen, rygg bakover og ødelegg rumpa på bilen. Også ta venstre svingen på fjellet og kjør rett ned stupet. Hvis du har lappen...</div>
+                            </div>
+                        </div>
+                        -->
+
                     </div>
+                    <div class="divider"></div>
+                    <div class="right">
 
-                    <div class="details">
-                        <div class="data_field">
-                            <div class="icon location"></div>
-                            <div class="text">${trip.location}</div>
+                        <div class="map">
+                            <div class="map_image">${getMapIMG()}</div>
+                            <a href="${trip.google_link}" target="_blank" class="button green">Gå til Google Maps</a>
                         </div>
-                        <div class="data_field">
-                            <div class="icon tur_type"></div>
-                            <div class="text">${trip.accessability}</div>
+
+                        
+                        <div class="markings">
+                            <div class="marking_title">Merker</div>
+                            <div class="marking_box">
+                                <div class="squarebtn ${trip.parking ? 'active' : ''}"><img src="../images/Local_Parking_Icon_8.png"/></div>
+                                <div class="squarebtn ${trip.walking ? 'active' : ''}"><img src="../images/Directions_Walk_Icon_2.png"/></div>
+                                <div class="squarebtn ${trip.wheelchair ? 'active' : ''}"><img src="../images/Accessible_Icon_8.png"/></div>
+                                <div class="squarebtn ${trip.bike ? 'active' : ''}"><img src="../images/Directions_Bike_Icon_1.png"/></div>
+                            </div>
                         </div>
-                        <div class="data_field">
-                            <div class="icon measurement"></div>
-                            <div class="text">${trip.distance} km</div>
-                        </div>
-                        <div class="data_field">
-                            <div class="icon timeclock"></div>
-                            <div class="text">${trip.time} minutter</div>
-                        </div>
-                        <div class="data_field">
-                            <div class="icon calender"></div>
-                            <div class="text">Sesong fra: ${trip.season}</div>
-                        </div>
-                        <div class="data_field">
-                            <div class="icon intensity"></div>
-                            <div class="text">Vanskelighet grad: ${trip.difficulty}</div>
-                        </div>
+
                     </div>
-
-                    <div class="description">
-                        <div class="title">Beskrivelse</div>
-                        <div class="text"><span>${trip.about}</span></div>
-                    </div>
-
-                    <!-- Unøvdvendig, har ingen sted i modell til å lagre eller laste dette
-                    <div class="extrainfo">
-                        <div class="extrainfo_title">Adkomst og parkering</div>
-                        <div class="extrainfo_box">
-                            <div class="title">Adkomst med egen bil</div>
-                            <div class="text">Fra garasjen, rygg bakover og ødelegg rumpa på bilen. Også ta venstre svingen på fjellet og kjør rett ned stupet. Hvis du har lappen...</div>
-                        </div>
-                    </div>
-                    -->
-
-                </div>
-                <div class="divider"></div>
-                <div class="right">
-
-                    <div class="map">
-                        <div class="map_image">${getMapIMG()}</div>
-                        <a href="${trip.google_link}" target="_blank" class="button green">Gå til Google Maps</a>
-                    </div>
-
-                    
-                    <div class="markings">
-                        <div class="marking_title">Merker</div>
-                        <div class="marking_box">
-                            <div class="squarebtn ${trip.parking ? 'active' : ''}"><img src="../images/Local_Parking_Icon_8.png"/></div>
-                            <div class="squarebtn ${trip.walking ? 'active' : ''}"><img src="../images/Directions_Walk_Icon_2.png"/></div>
-                            <div class="squarebtn ${trip.wheelchair ? 'active' : ''}"><img src="../images/Accessible_Icon_8.png"/></div>
-                            <div class="squarebtn ${trip.bike ? 'active' : ''}"><img src="../images/Directions_Bike_Icon_1.png"/></div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </div>
-    `; 
+        `; 
+    } else if (model.input.addEdit) {
+        HTML = /*HTML*/`
+            <div class="tur_Container">
+            <div class="tur_Page">
+                <div class="tur_Image">${getTripIMG()}</div>
+                <div class="tur_ImageUpload">
+                    <label for="img_trip" class="input_tripImg">Last opp bilder</label>
+                    <input type="file" id="img_trip" name="img_trip" accept=".jpg,.png,.bmp,.jpeg" style="opacity: 0; display: none;" onChange="img_trip_update()" />
+                </div>
+                
+                <input type="text" id="trip_name" placeholder="Tur navn" class="tur_Name" value="${model.input.tripEditAdd.name}"/>
 
+                <div class="tur_Data">
+                    <div class="left">
+
+                        <div class="tur_OmTur">
+                            <div class="text">Om turen</div>
+                        </div>
+
+                        <div class="details">
+                            <div class="data_field">
+                                <div class="icon location"></div>
+                                <input type="text" id="trip_location" placeholder="Fylke/by & adresse" class="text" value="${model.input.tripEditAdd.location}" />
+                            </div>
+                            <div class="data_field">
+                                <div class="icon tur_type"></div>
+                                <input type="text" id="trip_accessability" placeholder="Type tur, fra A til B" class="text" value="${model.input.tripEditAdd.accessability}" />
+                            </div>
+                            <div class="data_field">
+                                <div class="icon measurement"></div>
+                                <input type="number" id="trip_distance" placeholder="Distanse (km)" class="text" value="${model.input.tripEditAdd.distance} km" />
+                            </div>
+                            <div class="data_field">
+                                <div class="icon timeclock"></div>
+                                <input type="number" id="trip_time" placeholder="Tid (minutter)" class="text" value="${model.input.tripEditAdd.time} minutter" />
+                            </div>
+                            <div class="data_field">
+                                <div class="icon calender"></div>
+                                <input type="text" id="trip_season" placeholder="Sesong fra: (f.eks: Januar - Februar)" class="text" value="${model.input.tripEditAdd.season}" />
+                            </div>
+                            <div class="data_field">
+                                <div class="icon intensity"></div>
+                                <input type="number" id="trip_difficulty" placeholder="Vanskelighets grad (1-10)" class="text" value="${model.input.tripEditAdd.difficulty}" min=1 max=10 />
+                            </div>
+                        </div>
+
+                        <div class="description">
+                            <div class="title">Beskrivelse</div>
+                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" value="${model.input.tripEditAdd.about}" rows=10 cols=1></textarea>
+                        </div>
+
+                        <!-- Unøvdvendig, har ingen sted i modell til å lagre eller laste dette
+                        <div class="extrainfo">
+                            <div class="extrainfo_title">Adkomst og parkering</div>
+                            <div class="extrainfo_box">
+                                <div class="title">Adkomst med egen bil</div>
+                                <div class="text">Fra garasjen, rygg bakover og ødelegg rumpa på bilen. Også ta venstre svingen på fjellet og kjør rett ned stupet. Hvis du har lappen...</div>
+                            </div>
+                        </div>
+                        -->
+
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right">
+
+                    
+                        <div class="map">
+                            <div class="map_image" id="map_image">${getMapIMG()}</div>
+                            <label for="img_map" class="input_mapImg">Last opp bilde av tur ruten</label>
+                            <input type="file" id="img_map" name="img_map" accept=".jpg,.png,.bmp,.jpeg" style="opacity: 0" onChange="img_map_update()" />
+                            <input type="text" id="trip_googleLink" placeholder="Lenke til Google Maps" class="input_googlelink" value="${model.input.tripEditAdd.google_link}" />
+                        </div>
+
+                        
+                        <div class="markings">
+                            <div class="marking_title">Merker</div>
+                            <div id="marking_box" class="marking_box">
+                                <div class="squarebtn ${model.input.tripEditAdd.parking ? 'active' : ''}" onClick="tripEdit_toggle('Parking')"><img src="../images/Local_Parking_Icon_8.png"/></div>
+                                <div class="squarebtn ${model.input.tripEditAdd.walking ? 'active' : ''}" onClick="tripEdit_toggle('Walking')"><img src="../images/Directions_Walk_Icon_2.png"/></div>
+                                <div class="squarebtn ${model.input.tripEditAdd.wheelchair ? 'active' : ''}" onClick="tripEdit_toggle('Wheelchair')"><img src="../images/Accessible_Icon_8.png"/></div>
+                                <div class="squarebtn ${model.input.tripEditAdd.bike ? 'active' : ''}" onClick="tripEdit_toggle('Bike')"><img src="../images/Directions_Bike_Icon_1.png"/></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        `; 
+    } 
     document.getElementById('app').innerHTML = HTML;
 }
 
-function dataExample_generate() {
-    model.app.currentTrip = 0;
-    model.app.currentUser= 'user1';
-
-    //nye modell properties:
-    // google_link: '',    //googlemap link
-
-    let testTrip = {
-        id: 0,
-        name: 'Valleråsen',
-        about: `Blåmerket sti starter rett inn ved Jernbaneundergangen like nord for parkeringa, bak bygget til Misjon uten grenser. Her inne står en informasjonstavle med kartoversikt over løypemuligheter og ulike severdigheter innover i marka. Den første delen av løypa - opp lia - følger starten på den gamle presteveien mot Siljan, gjennom Bjørkedalen.
-
-        Et greit og fint terreng, men enkelte bratte lier med noe steinete underlag, må man beregne på turen. Ellers mye bra og god sti. På en liten del av løypa forekommer enkelte bløte partier, men dette er minimalt.
-        
-        Nå du har gått ca 1,2 km kommer du til et stidele. Denne stien går mot venstre, sammen med stien til Vannverket. Stien er godt merket og skiltet. Hele turen er på ca 2,2 km og tar ca en time.`,
-        location: 'Vestfold og Telemark, Porsgrunn',
-        distance: 2.2,        //number
-        time: 60,            //number
-        image: 'https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/vgpssg7fmfqmro2whsm1',          //src/link
-        season: 'April - November',
-        accessability: 'Enkel fottur, går en veg fra A til B',
-        map: '../images/turmap1.png',            //src/link
-        google_link: 'https://www.google.com/maps/dir//59.124754239,9.705845732',    //googlemap link
-        difficulty: 4,      //number
-        parking: true,         //boolean
-        walking: true,        //boolean
-        wheelchair: false,      //boolean
-        bike: false,           //boolean
-        creator: 'admin',
-        approved: true,
-    };
-    model.data.trips = [];
-    model.data.trips.push(testTrip);
-}
 
 function getMapIMG() {
     const trip = model.data.trips[model.app.currentTrip];
     if (trip.map != '') {
-        return `<img class="mapIMG" src="${trip.map}"/>`;
+        return `<img id="mapIMG" class="mapIMG" src="${trip.map}"/>`;
+    }
+    else {
+        return '';
+    }
+    
+}
+
+function getTripIMG() {
+    const trip = model.data.trips[model.app.currentTrip];
+    if (trip.image.length > 0) {
+        return `<img id="tripIMG" class="tripIMG" src="${trip.image[0]}"/>`;
     }
     else {
         return '';
     }
 }
 
-function getTripIMG() {
-    const trip = model.data.trips[model.app.currentTrip];
-    if (trip.image != '') {
-        return `<img class="tripIMG" src="${trip.image}"/>`;
-    }
-    else {
-        return '';
-    }
+function viewMarkings_editmode() {
+    document.getElementById('marking_box').innerHTML = `
+        <div class="squarebtn ${model.input.tripEditAdd.parking ? 'active' : ''}" onClick="tripEdit_toggle('Parking')"><img src="../images/Local_Parking_Icon_8.png"/></div>
+        <div class="squarebtn ${model.input.tripEditAdd.walking ? 'active' : ''}" onClick="tripEdit_toggle('Walking')"><img src="../images/Directions_Walk_Icon_2.png"/></div>
+        <div class="squarebtn ${model.input.tripEditAdd.wheelchair ? 'active' : ''}" onClick="tripEdit_toggle('Wheelchair')"><img src="../images/Accessible_Icon_8.png"/></div>
+        <div class="squarebtn ${model.input.tripEditAdd.bike ? 'active' : ''}" onClick="tripEdit_toggle('Bike')"><img src="../images/Directions_Bike_Icon_1.png"/></div>
+    `;
+}
+
+function view_imgMap_edit() {
+    document.getElementById('map_image').innerHTML = `<img id="mapIMG" class="mapIMG" src="${model.input.tripEditAdd.map}" />`;
 }

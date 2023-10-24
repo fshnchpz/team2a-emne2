@@ -1,7 +1,7 @@
 const model = {
     app: {
         currentUser: '',
-        currentPage: '', // main / trails / profile / users / login
+        currentPage: '', // main / trails / profile / users / login/createUser
         admin: '',
         currentTrip: null,
     },
@@ -20,19 +20,25 @@ const model = {
             location: '',
             distance: 0,        //number
             time: 0,            //number
-            image: '',          //src/link
+            image: [],          //src/link
             season: '',
             accessability: '',
             map: '',            //src/link
-            difficulty: 0,      //number
+            difficulty: null,      //number
             parking: false,         //boolean
             walking: false,        //boolean
             wheelchair: false,      //boolean
             bike: false,           //boolean
+            google_link: '',     //src/link
         },
         loginDetails: {
-            username: '',
+            admin: false,
+            name: '',
+            userName: '',
             password: '',
+            location: '',
+            favorites: [],
+            myTrips: [],
         },
     },
     data: {
@@ -52,7 +58,7 @@ const model = {
                 },
                 {
                     admin: true,           //boolean
-                    name: 'Chuck Norris',
+                    name: 'Anita',
                     username: 'user1',
                     password: '1234',
                     location: '',
@@ -68,7 +74,7 @@ const model = {
             location: '',
             distance: 0,        //number
             time: 0,            //number
-            image: '',          //src/link
+            image: [],          //src/link
             season: '',
             accessability: '',
             map: '',            //src/link
@@ -77,6 +83,7 @@ const model = {
             walking: false,        //boolean
             wheelchair: false,      //boolean
             bike: false,           //boolean
+            google_link: '',     //src/link
             creator: '',
             approved: false,
         }],
