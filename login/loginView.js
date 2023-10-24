@@ -55,7 +55,7 @@ function logIn()
 }
 
 // når man trykker på logginknapp oppe til venstere
-function tryToLoggIn()
+function tryToLogIn()
 {
     if (model.app.currentUser == '')
     {
