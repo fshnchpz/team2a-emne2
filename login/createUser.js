@@ -19,6 +19,8 @@ function createUser()
 {
     const existingUser = model.data.users.find(user => user.username === model.input.loginDetails.userName);
     const confirmPassword = document.getElementById('confirmPasswordInput').value;
+    errorUsername = '';
+    errorPassword = '';
 
     if (existingUser)
     {
@@ -35,8 +37,8 @@ function createUser()
                 username: model.input.loginDetails.userName,
                 password: model.input.loginDetails.password,
                 location: model.input.loginDetails.location,
-                favorites: [],
-                myTrips: [],
+                favorites:  [],
+                myTrips:    [],
             }
             model.data.users.push(newUser);
 
@@ -44,8 +46,12 @@ function createUser()
             model.input.loginDetails.userName = '';
             model.input.loginDetails.password = '';
             model.input.loginDetails.location = '';
+<<<<<<< Updated upstream
 
             model.app.currentPage = "login";
+=======
+            goToSite('login');
+>>>>>>> Stashed changes
         }
         else
         {

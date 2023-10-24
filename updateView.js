@@ -18,7 +18,7 @@ function updateview()
             console.log('switch result:Login')
             break;
         case 'trips':
-            etHTML_turViewMode();
+            getHTML_turViewMode();
             console.log('switch result:Trips')
             break;
         case 'createUser':
@@ -29,4 +29,9 @@ function updateview()
             console.log('switch result:default')
             break;
     }
+}
+
+function goToSite(site) {
+    model.app.currentPage = site;
+    updateview();
 }

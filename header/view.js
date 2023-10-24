@@ -29,7 +29,7 @@ function getHTML_header() {
     HTML += /*HTML*/`
 
         <!-- Logg inn knappen -->
-        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="tryToLoggIn()">
+        <div id="topMainLogInBtn" class="topMainLogInBtn" onclick="tryToLogIn()">
             <div class="LoginBTN_position">
                 <img src="../images/TUR_Project_Account_Circle_Icon_2.png" class="acc_ico">
                 <div id="login_txt" class="login_txt">${LoginText}</div>
@@ -47,11 +47,11 @@ function getHTML_header() {
         <!-- Linjen med knapper under bakgrunnsbildet -->
         <div class="topMainPagesBtns">
             <!-- Turer knappen -->
-            <div class="pages">Turer</div>
+            <div onclick="goToSite('trips')" class="pages">Turer</div>
             <!-- Profiler knappen -->
-            <div class="pages">Profil</div>
+            <div onclick="goToSite('profile')" class="pages">Profil</div>
             <!-- Medlemmer knappen -->
-            <div class="pages">Medlemmer</div>
+            <div onclick="goToSite('')" class="pages">Medlemmer</div>
             <!-- Bruker knappen + account icon -->
             <div id="topMainPageAccountBtn" class="topMainPageAccountBtn">${CurrentUserText}</div>
         </div>
