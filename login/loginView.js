@@ -29,7 +29,7 @@ function logIn()
 {
     const username = model.input.loginDetails.userName;
     const password = model.input.loginDetails.password;
-    let userFound = false; // Flag to track if a matching user is found
+    let userFound = false;
 
     for (const user of model.data.users)
     {
@@ -40,7 +40,7 @@ function logIn()
             model.app.currentUser = user.name;
             model.app.currentPage = "main";
             getHTML_header();
-            userFound = true; // Set the flag to true
+            userFound = true;
             errorMessage = '';
             break;
         }
@@ -51,10 +51,10 @@ function logIn()
         errorMessage = 'Ditt brukernavn eller passord er feil';
         console.log("username and/or password is wrong");
     }
-    updateview()
+    updateview();
 }
 
-// når man trykker på logginknapp
+// når man trykker på logginknapp oppe til venstere
 function tryToLoggIn()
 {
     if (model.app.currentUser == '')
@@ -65,7 +65,7 @@ function tryToLoggIn()
     {
         model.app.currentUser = '';
     }
-    updateview()
+    updateview();
 }
 
 function goToCreateUserPage()

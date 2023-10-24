@@ -39,10 +39,12 @@ function createUser()
                 myTrips: [],
             }
             model.data.users.push(newUser);
+
             model.input.loginDetails.name = '';
             model.input.loginDetails.userName = '';
             model.input.loginDetails.password = '';
             model.input.loginDetails.location = '';
+
             model.app.currentPage = "login";
         }
         else
