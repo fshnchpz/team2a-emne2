@@ -45,6 +45,22 @@
     row-gap: 10%;
 }
 
+.addBtn {
+    background-color: #444444;
+    color: rgb(204, 203, 203);
+    font-size: 20px;
+    border-radius: 7px;
+    margin: 0.8%;
+    padding: 0.5% 2% 0.5% 2%;
+    position: fixed;
+    right: 5%;
+    cursor: pointer;
+}
+
+.addBtn:hover {
+    background-color: #6e6e6e;
+}
+
 @media only screen and (max-width: 1800px) {
 .content {
     grid-template: 1fr / 1fr 1fr 1fr 1fr;

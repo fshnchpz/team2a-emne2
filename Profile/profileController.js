@@ -15,7 +15,7 @@ function selection(list) {
         `
     } else if (list === 'trips') {
         html = /*html*/ `
-        <div class="addBtn">button</div>
+        <div class="addBtn">Legg til ny tur</div>
         <div class="content">
             <div class="tur"></div>
             <div class="tur"></div>
