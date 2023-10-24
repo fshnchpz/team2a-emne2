@@ -1,6 +1,7 @@
 "use strict";
 
-function getHTML_header() {
+function getHTML_header()
+{
     let HTML = ``;
     let LoginText = ``;
     let CurrentUserText = ``;
@@ -53,7 +54,7 @@ function getHTML_header() {
             <!-- Medlemmer knappen -->
             <div onclick="goToSite('')" class="pages">Medlemmer</div>
             <!-- Bruker knappen + account icon -->
-            <div id="topMainPageAccountBtn" class="topMainPageAccountBtn">${CurrentUserText}</div>
+            <div id="topMainPageAccountBtn" onclick="goToSite('profile')" class="topMainPageAccountBtn">${CurrentUserText}</div>
         </div>
     `;
     document.getElementById('header').innerHTML = HTML;
