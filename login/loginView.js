@@ -38,15 +38,9 @@ function logIn()
             model.input.loginDetails.userName = '';
             model.input.loginDetails.password = '';
             model.app.currentUser = user.name;
-<<<<<<< Updated upstream
-            model.app.currentPage = "main";
-            getHTML_header();
-            userFound = true;
-=======
             goToSite('main')
             getHTML_header('createUserpage');
             userFound = true; // Set the flag to true
->>>>>>> Stashed changes
             errorMessage = '';
             break;
         }
@@ -60,13 +54,8 @@ function logIn()
     updateview();
 }
 
-<<<<<<< Updated upstream
 // når man trykker på logginknapp oppe til venstere
 function tryToLoggIn()
-=======
-// når man trykker på logginknapp
-function tryToLogIn()
->>>>>>> Stashed changes
 {
     if (model.app.currentUser == '')
     {
@@ -76,15 +65,6 @@ function tryToLogIn()
     {
         model.app.currentUser = '';
     }
-<<<<<<< Updated upstream
-    updateview();
-}
-
-function goToCreateUserPage()
-{
-    model.app.currentPage = 'createUser';
-=======
->>>>>>> Stashed changes
     updateview();
 }
 
