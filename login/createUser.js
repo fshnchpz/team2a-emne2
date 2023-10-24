@@ -3,7 +3,6 @@ let errorPassword = '';
 let errorUsername = '';
 function createUserpage()
 {
-
     document.getElementById('app').innerHTML =/*HTML*/`
     <div class="createUserInputs">
         <div>Navn:</div><input onchange= "model.input.loginDetails.name=this.value" value="${model.input.loginDetails.name}" type="text"><br>
@@ -13,8 +12,7 @@ function createUserpage()
         <div>Bekreft Passord:</div><input id='confirmPasswordInput' value="" type="password"><br>
         <div class="errorMsg">${errorPassword}</div><br>
         <button onclick="createUser()">Opprett bruker</button>
-    </div>
-`
+    </div>`
 }
 
 function createUser()
@@ -31,7 +29,20 @@ function createUser()
     {
         if (model.input.loginDetails.password === confirmPassword)
         {
-            model.data.users.push(model.input.loginDetails);
+            const newUser = {
+                admin: false,
+                name: model.input.loginDetails.name,
+                username: model.input.loginDetails.userName,
+                password: model.input.loginDetails.password,
+                location: model.input.loginDetails.location,
+                favorites: [],
+                myTrips: [],
+            }
+            model.data.users.push(newUser);
+            model.input.loginDetails.name = '';
+            model.input.loginDetails.userName = '';
+            model.input.loginDetails.password = '';
+            model.input.loginDetails.location = '';
             model.app.currentPage = "login";
         }
         else
@@ -41,16 +52,3 @@ function createUser()
     }
     updateview();
 }
-
-
-
-
-//input for hver av disse:
-
-// admin: false,
-// name: '',
-// username: '',
-// password: '',
-// location: '',
-// favorites: [],     //trip id
-// myTrips: [],
