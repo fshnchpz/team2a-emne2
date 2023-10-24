@@ -3,6 +3,7 @@
 
 function getHTML_turViewMode() {
     let HTML = ``;
+    let confirm = 'godkjent';
 
 
     //Hent ingenting hvis en tur ikke er valgt
@@ -23,6 +24,17 @@ function getHTML_turViewMode() {
 
     HTML = /*HTML*/`
         <div class="tur_Container">
+        <div class="editContainer">
+            <div class="marginTop5">
+                <div class="editContainerText">Panel</div>
+                <div class="editBtnUser" onclick="">Rediger</div>
+            </div>
+            <div class="marginBottom5">
+                <div class="horizontal-line-2"></div>
+                <div class="editStatusText">status</div>
+                <div>${confirm}</div>
+            </div>
+        </div>
         <div class="tur_Page">
             <div class="tur_Image">${getTripIMG()}</div>
             <div class="tur_Name">${trip.name}</div>

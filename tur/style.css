@@ -6,6 +6,68 @@
     margin-bottom: 5rem;
 }
 
+.editContainer {
+    border: 1px solid rgb(151, 151, 151);
+    position: fixed;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    right: 0;
+    width: 10dvw;
+    height: 30dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.editContainer > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marginTop5 > div {
+    margin-top: 5%;
+}
+
+.marginBottom5 {
+    margin-bottom: 5%;
+}
+
+.editStatusText {
+    font-size: 20px;
+}
+
+
+
+.editContainerText {
+    font-size: x-large;
+}
+
+.horizontal-line-2 {
+	width: 160px;
+	height: 0px;
+	border-color: #929292;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.editBtnUser {
+    background-color: #444444;
+    color: white;
+    border-radius: 5px;
+    width: 80%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editBtnUser:hover {
+    background-color: #6d6d6d;
+}
+
 .tur_Page {
     display: flex;
     flex-direction: column;
