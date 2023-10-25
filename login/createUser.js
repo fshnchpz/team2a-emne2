@@ -21,8 +21,12 @@ function createUser()
     const confirmPassword = document.getElementById('confirmPasswordInput').value;
     errorUsername = '';
     errorPassword = '';
+    if (model.input.loginDetails.userName == '')
+    {
+        errorUsername = 'Brukernavn mangler'
 
-    if (existingUser)
+    }
+    else if (existingUser)
     {
         console.log('User with the same username already exists.');
         errorUsername = 'Brukernavnet eksisterer allerede';
@@ -53,5 +57,6 @@ function createUser()
             errorPassword = 'Passordene stemmer ikke overens';
         }
     }
+
     updateview();
 }
