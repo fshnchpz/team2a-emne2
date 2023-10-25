@@ -2,7 +2,7 @@
 function dataExample_generate() {
     model.app.currentTrip = 0;
     model.app.currentUser= 'user1';
-    model.input.addEdit = true;
+    model.input.addEdit = false;
 
     //nye modell properties:
     // google_link: '',    //googlemap link

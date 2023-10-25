@@ -23,7 +23,8 @@ function createUser()
     errorPassword = '';
     if (model.input.loginDetails.userName == '')
     {
-        errorUsername = 'Brukernavn mangler'
+        errorUsername = 'Brukernavn mangler';
+
     }
     else if (existingUser)
     {
