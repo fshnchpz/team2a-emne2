@@ -20,18 +20,6 @@ function getHTML_turViewMode() {
         return User.username === model.app.currentUser;
     });
 
-    let existingUsers = 0;
-    model.users.forEach(User => {
-        if (User.username == model.input.loginDetails.username) {
-            existingUsers++;
-        }
-    });
-
-    if (existingUsers > 0) {
-        console.log('Already have this user');
-    }
-
-
     if (curUser.favorites.includes(trip.id)) {
         isFavorite = true;
     }
