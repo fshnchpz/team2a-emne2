@@ -59,7 +59,7 @@ function tryToLogIn()
 {
     if (model.app.currentUser == '')
     {
-        goToSite('login')
+        goToSite('login');
     }
     else
     {

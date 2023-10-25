@@ -24,7 +24,6 @@ function createUser()
     if (model.input.loginDetails.userName == '')
     {
         errorUsername = 'Brukernavn mangler'
-
     }
     else if (existingUser)
     {
@@ -57,6 +56,5 @@ function createUser()
             errorPassword = 'Passordene stemmer ikke overens';
         }
     }
-
     updateview();
 }
