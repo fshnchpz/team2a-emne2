@@ -24,6 +24,7 @@ function getHTML_turViewMode() {
         isFavorite = true;
     }
 
+    if (!model.input.addEdit) {
     HTML = /*HTML*/`
         <div class="tur_Container">
         <div class="editContainer">
