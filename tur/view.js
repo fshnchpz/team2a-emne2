@@ -26,16 +26,16 @@ function getHTML_turViewMode() {
 
     if (!model.input.addEdit) {
     HTML = /*HTML*/`
-        <div class="tur_Container">
-        <div class="editContainer">
-            <div class="marginTop5">
+    <div class="tur_Container">
+        <div class="SidePanel_container">
+            <div class="snap_top">
                 <div class="editContainerText">Panel</div>
                 <div class="editBtnUser" onclick="">Rediger</div>
             </div>
-            <div class="marginBottom5">
-                <div class="horizontal-line-2"></div>
-                <div class="editStatusText">status</div>
-                <div>${confirm}</div>
+            <div class="snap_bottom">
+                <div class="side_panel_divider"></div>
+                <div class="status_text_label">Status</div>
+                <div class="status_text">${confirm}</div>
             </div>
         </div>
         <div class="tur_Page">
