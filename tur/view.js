@@ -1,8 +1,14 @@
 
 "use strict"
 
+function turView_openCard(card_id) {
+    const trip = model.data.trips.find(trail => {
+        return trail.id === card_id;
+    });
 
-
+    model.app.currentTrip = trip.id;
+    getHTML_turViewMode();
+}
 
 function getHTML_turViewMode() {
     let HTML = ``;
@@ -14,7 +20,10 @@ function getHTML_turViewMode() {
         return;
     }
 
-    const trip = model.data.trips[model.app.currentTrip];
+    const trip = model.data.trips.find(trail => {
+        return trail.id === model.app.currentTrip;
+    });
+
     let isFavorite = false;
     const curUser = model.data.users.find(User => {
         return User.username === model.app.currentUser;

@@ -3,9 +3,12 @@ body {
     padding: 0;
     width: 100dvw;
     height: 100dvh;
-
     user-select: none;
     background-color: #f2f2f2;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .pageContainer {
@@ -21,3 +24,152 @@ body {
 }
 
 
+
+
+/* Trails Styles */
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 3rem;
+    margin-bottom: 4rem;
+}
+
+.carousel_container {
+    position: fixed;
+    bottom: 0;
+	width: 100%;
+	height: 40px;
+	padding: 8px 8px 8px 8px;
+	box-shadow: -1px -4px 4px rgba(0, 0, 0, 0.1);
+	background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.card {
+    width: 300px;
+    height: 357px;
+    padding: 8px 8px 8px 8px;
+    background: #F9F9F9;
+    border-color: #D6D6D6;
+    border-width: 1px;
+    border-style: solid;
+}
+.card:hover {
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.card > .prev_image {
+	width: 100%;
+	height: 174px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardContainer > .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    margin-bottom: 3rem;
+}
+.card_markings {
+    display: flex;
+    justify-content: right;
+    height: 28px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+.card_location {
+    width: 100%;
+	height: 22px;
+	color: #7A7A7A;
+	font-family: "Poppins";
+	font-weight: bold;
+	font-size: 15px;
+	text-align: right;
+}
+.card_data > .name {
+	width: 100%;
+	height: 31px;
+	color: #4C7A34;
+	font-family: "Poppins";
+	font-weight: bold;
+	font-size: 24px;
+	text-align: left;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card_data > .distance {
+    height: 33px;
+    width: 100%;
+    padding-left: 0.7rem;
+    display: flex;
+    align-items: center;
+    line-height: 33px;
+	font-family: "Poppins";
+    margin-top: 0.3rem;
+}
+.card_data > .time {
+    height: 33px;
+    width: 100%;
+    padding-left: 0.7rem;
+    display: flex;
+    align-items: center;
+    line-height: 33px;
+	font-family: "Poppins";
+    margin-top: 0.3rem;
+}
+.card_icons {
+    height: 33px;
+    margin-right: 0.5rem;
+}
+
+.card_markingStyle {
+    filter: invert(100%);
+    height: 100%;
+}
+
+.arrow {
+    border-radius: 100px;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 0.2rem;
+    color: #606060;
+}
+
+.arrow:hover {
+    color: #9b9b9b;
+}
+
+.carousel_container > .circle {
+	width: 27px;
+	height: 27px;
+	background: #606060;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+	font-family: "Poppins";
+	font-weight: bold;
+	font-size: 10px;
+    margin: 0.1rem;
+}
+.carousel_container > .circle:hover {
+	background: #9b9b9b;
+}
+
+/* End of Trails Styles */
