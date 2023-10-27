@@ -1,6 +1,6 @@
 function updateview()
 {
-    getHTML_header()
+    getHTML_header();
 
     const hvasomhelst = model.app.currentPage;
     switch (hvasomhelst)

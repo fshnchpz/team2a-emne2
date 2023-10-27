@@ -14,7 +14,10 @@ function getHTML_turViewMode() {
         return;
     }
 
-    const trip = model.data.trips[model.app.currentTrip];
+    const trip = model.data.trips.find(trail => {
+        return trail.id === model.app.currentTrip;
+    });
+
     let isFavorite = false;
     const curUser = model.data.users.find(User => {
         return User.username === model.app.currentUser;
@@ -30,7 +33,7 @@ function getHTML_turViewMode() {
         <div class="SidePanel_container">
             <div class="snap_top">
                 <div class="editContainerText">Panel</div>
-                <div class="editBtnUser" onclick="">Rediger</div>
+                <div class="editBtnUser" onclick="ToggleEditMode()">${!model.input.addEdit ? 'Rediger' : 'Avbryt'}</div>
             </div>
             <div class="snap_bottom">
                 <div class="side_panel_divider"></div>
@@ -120,6 +123,17 @@ function getHTML_turViewMode() {
     } else if (model.input.addEdit) {
         HTML = /*HTML*/`
             <div class="tur_Container">
+            <div class="SidePanel_container">
+                <div class="snap_top">
+                    <div class="editContainerText">Panel</div>
+                    <div class="editBtnUser" onclick="ToggleEditMode()">${!model.input.addEdit ? 'Rediger' : 'Avbryt'}</div>
+                </div>
+                <div class="snap_bottom">
+                    <div class="side_panel_divider"></div>
+                    <div class="status_text_label">Status</div>
+                    <div class="status_text">${confirm}</div>
+                </div>
+            </div>
             <div class="tur_Page">
                 <div class="tur_Image">${getTripIMG()}</div>
                 <div class="tur_ImageUpload">
@@ -147,11 +161,11 @@ function getHTML_turViewMode() {
                             </div>
                             <div class="data_field">
                                 <div class="icon measurement"></div>
-                                <input type="number" id="trip_distance" placeholder="Distanse (km)" class="text" value="${model.input.tripEditAdd.distance} km" />
+                                <input type="number" id="trip_distance" placeholder="Distanse (km)" class="text" value="${model.input.tripEditAdd.distance}" />
                             </div>
                             <div class="data_field">
                                 <div class="icon timeclock"></div>
-                                <input type="number" id="trip_time" placeholder="Tid (minutter)" class="text" value="${model.input.tripEditAdd.time} minutter" />
+                                <input type="number" id="trip_time" placeholder="Tid (minutter)" class="text" value="${model.input.tripEditAdd.time}" />
                             </div>
                             <div class="data_field">
                                 <div class="icon calender"></div>
@@ -165,7 +179,7 @@ function getHTML_turViewMode() {
 
                         <div class="description">
                             <div class="title">Beskrivelse</div>
-                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" value="${model.input.tripEditAdd.about}" rows=10 cols=1></textarea>
+                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" value="asdasdasd" rows=10 cols=1>${model.input.tripEditAdd.about}</textarea>
                         </div>
 
                         <!-- Unøvdvendig, har ingen sted i modell til å lagre eller laste dette

@@ -1,7 +1,5 @@
 
 function dataExample_generate() {
-    model.app.currentTrip = 0;
-    model.app.currentUser= 'user1';
     model.input.addEdit = false;
 
     //nye modell properties:
@@ -31,8 +29,7 @@ function dataExample_generate() {
         creator: 'admin',
         approved: true,
     };
-    model.data.trips = [];
-    model.data.trips.push(testTrip);
+    model.data.trips.unshift(testTrip);
 }
 
 function tripEdit_toggle(marking) {
@@ -64,4 +61,33 @@ function img_trip_update() {
     let img_srclink = URL.createObjectURL(img_file);
     document.getElementById('tripIMG').src = img_srclink;
 
+}
+
+function ToggleEditMode() {
+    model.input.addEdit = !model.input.addEdit;
+
+    const trip = model.data.trips.find(trail => {
+        return trail.id === model.app.currentTrip;
+    });
+    const inputs = model.input.tripEditAdd;
+
+    if (model.input.addEdit) {
+        inputs.name = trip.name;
+        inputs.about = trip.about;
+        inputs.location = trip.location;
+        inputs.distance = trip.distance;
+        inputs.time = trip.time;
+        inputs.image = trip.image;
+        inputs.season = trip.season;
+        inputs.accessability = trip.accessability;
+        inputs.map = trip.map;
+        inputs.difficulty = trip.difficulty;
+        inputs.parking = trip.parking;
+        inputs.walking = trip.walking;
+        inputs.wheelchair = trip.wheelchair;
+        inputs.bike = trip.bike;
+        inputs.google_link = trip.google_link;
+    }
+
+    getHTML_turViewMode();
 }
