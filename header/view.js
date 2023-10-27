@@ -52,7 +52,7 @@ function getHTML_header()
             <!-- Profiler knappen -->
             <div onclick="goToSite('profile')" class="pages">Profil</div>
             <!-- Medlemmer knappen -->
-            <div onclick="goToSite('')" class="pages">Medlemmer</div>
+            <div onclick="goToSite('members')" class="pages">Medlemmer</div>
             <!-- Bruker knappen + account icon -->
             <div id="topMainPageAccountBtn" onclick="goToSite('profile')" class="topMainPageAccountBtn">${CurrentUserText}</div>
         </div>
