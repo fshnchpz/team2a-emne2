@@ -25,13 +25,18 @@ function updateview()
             createUserpage();
             console.log('switch result:createUser')
             break;
+        case 'members':
+            memberView();
+            console.log('switch result:members')
+            break;
         default:
             console.log('switch result:default')
             break;
     }
 }
 
-function goToSite(site) {
+function goToSite(site)
+{
     model.app.currentPage = site;
     updateview();
 }
