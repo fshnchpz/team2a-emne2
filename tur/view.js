@@ -1,8 +1,14 @@
 
 "use strict"
 
+function turView_openCard(card_id) {
+    const trip = model.data.trips.find(trail => {
+        return trail.id === card_id;
+    });
 
-
+    model.app.currentTrip = trip.id;
+    getHTML_turViewMode();
+}
 
 function getHTML_turViewMode() {
     let HTML = ``;

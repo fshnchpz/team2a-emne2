@@ -18,7 +18,7 @@ function updateview()
             console.log('switch result:Login')
             break;
         case 'trips':
-            getHTML_turViewMode();
+            viewTrails();
             console.log('switch result:Trips')
             break;
         case 'createUser':
