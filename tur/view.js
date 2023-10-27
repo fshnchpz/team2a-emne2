@@ -25,12 +25,16 @@ function getHTML_turViewMode() {
     });
 
     let isFavorite = false;
-    const curUser = model.data.users.find(User => {
-        return User.username === model.app.currentUser;
-    });
+    if (!model.app.currentUser == '') {
+        const curUser = model.data.users.find(User => {
+            return User.username === model.app.currentUser;
+        });
 
-    if (curUser.favorites.includes(trip.id)) {
-        isFavorite = true;
+        if (curUser.favorites.includes(trip.id)) {
+            isFavorite = true;
+        }
+    } else {
+        isFavorite = false;
     }
 
     if (!model.input.addEdit) {

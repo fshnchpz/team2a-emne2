@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-button {
+.loginButton {
     box-shadow: 0px 3px 5px rgb(108, 108, 108);
     cursor: pointer;
     color: white;
@@ -23,11 +23,11 @@ button {
     width: 120px;
 }
 
-button:hover {
+.loginButton:hover {
     background-color: #578c3c;
 }
 
-input {
+.loginInput {
     width: 180px;
     height: 32px;
     padding: 0px 8px 0px 8px;

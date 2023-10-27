@@ -8,14 +8,14 @@ function loginSide()
             <img src="images/TUR_Project_Supervised_User_Circle_Icon_1.png" alt="logo">
             <br>
             <br>
-            <input id="username" onchange= "loginInput()" value="${model.input.loginDetails.userName}" type="text" placeholder="Brukernavn:">
+            <input class="loginInput" id="username" onchange= "loginInput()" value="${model.input.loginDetails.userName}" type="text" placeholder="Brukernavn:">
             <br>
-            <input id="password" onchange= "loginInput()" value="${model.input.loginDetails.password}" type="password" placeholder="Passord:">
+            <input class="loginInput" id="password" onchange= "loginInput()" value="${model.input.loginDetails.password}" type="password" placeholder="Passord:">
             <br>
             <div class="errorMsg">${errorMessage}</div><br>
-            <button onclick="goToSite('createUser')">Opprett bruker</button>
+            <button class="loginButton" onclick="goToSite('createUser')">Opprett bruker</button>
             <br>
-            <button onclick="logIn()">Logg inn</button>
+            <button class="loginButton" onclick="logIn()">Logg inn</button>
     </div>`;
 }
 
