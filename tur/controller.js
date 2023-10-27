@@ -6,7 +6,7 @@ function dataExample_generate() {
     // google_link: '',    //googlemap link
 
     let testTrip = {
-        id: 0,
+        id: 6,
         name: 'Valleråsen',
         about: `Blåmerket sti starter rett inn ved Jernbaneundergangen like nord for parkeringa, bak bygget til Misjon uten grenser. Her inne står en informasjonstavle med kartoversikt over løypemuligheter og ulike severdigheter innover i marka. Den første delen av løypa - opp lia - følger starten på den gamle presteveien mot Siljan, gjennom Bjørkedalen.
 

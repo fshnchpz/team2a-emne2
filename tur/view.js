@@ -6,7 +6,7 @@ function turView_openCard(card_id) {
         return trail.id === card_id;
     });
 
-    model.app.currentTrip = trip.id;
+    model.app.currentTrip = card_id;
     getHTML_turViewMode();
 }
 
@@ -236,7 +236,9 @@ function getHTML_turViewMode() {
 
 
 function getMapIMG() {
-    const trip = model.data.trips[model.app.currentTrip];
+    const trip = model.data.trips.find(trail => {
+        return trail.id === model.app.currentTrip;
+    });
     if (trip.map != '') {
         return `<img id="mapIMG" class="mapIMG" src="${trip.map}"/>`;
     }
@@ -247,7 +249,9 @@ function getMapIMG() {
 }
 
 function getTripIMG() {
-    const trip = model.data.trips[model.app.currentTrip];
+    const trip = model.data.trips.find(trail => {
+        return trail.id === model.app.currentTrip;
+    });
     if (trip.image.length > 0) {
         return `<img id="tripIMG" class="tripIMG" src="${trip.image[0]}"/>`;
     }
