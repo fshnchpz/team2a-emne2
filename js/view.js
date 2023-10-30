@@ -3,19 +3,24 @@ const data = model.data.trips;
 let tur_card_max = 9;
 let tur_cardPage = 0;
 
-function viewTrails() { //dette viser alle turene som kort
+function viewTrails()
+{ //dette viser alle turene som kort
     let html = /*html*/ `
     <div class="cardContainer">
         <div class="grid">
     `;
 
-    if (data.length >= tur_card_max) {
-        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < tur_card_max; tur_id++) {
+    if (data.length >= tur_card_max)
+    {
+        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < tur_card_max; tur_id++)
+        {
             html += getTrailCard(tur_id);
         }
     }
-    else {
-        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < data.length; tur_id++) {
+    else
+    {
+        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < data.length; tur_id++)
+        {
             html += getTrailCard(tur_id);
         }
     }
@@ -31,10 +36,12 @@ function viewTrails() { //dette viser alle turene som kort
     document.getElementById('app').innerHTML = html;
 }
 
-function showPageNumber() {
+function showPageNumber()
+{
     let pageCounter = Math.ceil(data.length / tur_card_max);
-    let html = '';
-    for (let i = 0; i < pageCounter; i++) {
+    // let html = '';
+    for (let i = 0; i < pageCounter; i++)
+    {
         html += `
         <div class="circle" onclick="${tur_cardPage = i}, viewTrails()">${i + 1}</div>
         `;
@@ -42,7 +49,8 @@ function showPageNumber() {
     return html;
 }
 
-function getTrailCard(tur_id) { //dette viser et kort om gangen
+function getTrailCard(tur_id)
+{ //dette viser et kort om gangen
     let html = /*html*/ `
         <div class="card" onClick="turView_openCard(${data[tur_id].id})">
             <div class="prev_image" style="background: url('${data[tur_id].image[0]}') no-repeat; background-size: 100% auto;">
@@ -62,25 +70,31 @@ function getTrailCard(tur_id) { //dette viser et kort om gangen
     return html;
 }
 
-function timeConvert(minutes) {
+function timeConvert(minutes)
+{
     let Text = ``;
     let data_Hours = 0;
     let data_Minutes = 0;
-    if (minutes >= 60) {
+    if (minutes >= 60)
+    {
         data_Hours = Math.floor(minutes / 60);
         data_Minutes = minutes - (60 * data_Hours);
     }
-    if (data_Hours > 0) {
+    if (data_Hours > 0)
+    {
         Text = `${data_Hours} Timer`;
 
-        if (data_Hours == 1) {
+        if (data_Hours == 1)
+        {
             Text = `${data_Hours} Time`;
         }
-        if (data_Minutes > 0) {
+        if (data_Minutes > 0)
+        {
             Text += ` & ${data_Minutes} minutter`;
         }
     }
-    else {
+    else
+    {
         Text = `${minutes} minutter`;
     }
 
@@ -88,19 +102,24 @@ function timeConvert(minutes) {
     return Text;
 }
 
-function iconsLoop(tur_id) {
+function iconsLoop(tur_id)
+{
     let html = ``;
 
-    if (data[tur_id].parking) {
+    if (data[tur_id].parking)
+    {
         html += `<img class="card_markingStyle" src="../images/Local_Parking_Icon_8.png"/>`;
     }
-    if (data[tur_id].walking) {
+    if (data[tur_id].walking)
+    {
         html += `<img class="card_markingStyle" src="../images/Directions_Walk_Icon_2.png"/>`;
     }
-    if (data[tur_id].wheelchair) {
+    if (data[tur_id].wheelchair)
+    {
         html += `<img class="card_markingStyle" src="../images/Accessible_Icon_8.png"/>`;
     }
-    if (data[tur_id].bike) {
+    if (data[tur_id].bike)
+    {
         html += `<img class="card_markingStyle" src="../images/Directions_Bike_Icon_1.png"/>`;
     }
     return html;
