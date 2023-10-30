@@ -22,7 +22,7 @@ const model = {
             time: 0,            //number
             image: [],          //src/link
             season: '',
-            // accessability: '',
+            accessability: '',
             map: '',            //src/link
             difficulty: null,      //number
             parking: false,         //boolean
