@@ -42,6 +42,13 @@
     font-size: 14px;
     text-align: left;
 }
+.registerLabel {
+    color: #000000;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+}
 
 .errorMsg {
     color: red;

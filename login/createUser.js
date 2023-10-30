@@ -5,13 +5,13 @@ function createUserpage()
 {
     document.getElementById('app').innerHTML =/*HTML*/`
     <div class="createUserInputs">
-        <div>Navn:</div><input onchange= "model.input.loginDetails.name=this.value" value="${model.input.loginDetails.name}" type="text"><br>
-        <div>Brukernavn:</div><input onchange= "model.input.loginDetails.userName=this.value" value="${model.input.loginDetails.userName}" type="text"><br>
-        <div class="errorMsg">${errorUsername}</div><br>
-        <div>Passord:</div><input onchange= "model.input.loginDetails.password=this.value" value="${model.input.loginDetails.password}" type="password"><br>
-        <div>Bekreft Passord:</div><input id='confirmPasswordInput' value="" type="password"><br>
-        <div class="errorMsg">${errorPassword}</div><br>
-        <button onclick="createUser()">Opprett bruker</button>
+        <div class="registerLabel">Navn:</div><input class="loginInput" onchange= "model.input.loginDetails.name=this.value" value="${model.input.loginDetails.name}" type="text"><br>
+        <div class="registerLabel">Brukernavn:</div><input class="loginInput" onchange= "model.input.loginDetails.userName=this.value" value="${model.input.loginDetails.userName}" type="text"><br>
+        <div class="registerLabel errorMsg">${errorUsername}</div><br>
+        <div class="registerLabel">Passord:</div><input class="loginInput" onchange= "model.input.loginDetails.password=this.value" value="${model.input.loginDetails.password}" type="password"><br>
+        <div class="registerLabel">Bekreft Passord:</div><input class="loginInput" id='confirmPasswordInput' value="" type="password"><br>
+        <div class="registerLabel errorMsg">${errorPassword}</div><br>
+        <button class="loginButton" onclick="createUser()">Opprett bruker</button>
     </div>`
 }
 
