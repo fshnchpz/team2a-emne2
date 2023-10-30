@@ -29,7 +29,7 @@ function viewTrails()
         </div>
         <div class="carousel_container">
             <div class="arrow" onclick="carousel_previous()">◄</div>
-            ${showPageNumber()}
+            ${showPageNumber}
             <div class="arrow" onclick="carousel_next()">►</div>
         </div>
     `;
@@ -38,15 +38,15 @@ function viewTrails()
 
 function showPageNumber()
 {
-    let pageCounter = Math.ceil(data.length / tur_card_max);
-    // let html = '';
+    // let pageCounter = Math.ceil(data.length / tur_card_max);
+    let pageNumber = '';
     for (let i = 0; i < pageCounter; i++)
     {
-        html += `
+        pageNumber += `
         <div class="circle" onclick="${tur_cardPage = i}, viewTrails()">${i + 1}</div>
         `;
     }
-    return html;
+    return pageNumber;
 }
 
 function getTrailCard(tur_id)

@@ -1,8 +1,12 @@
 #members{
-    margin-top: 200px;
-    margin-left: 800px;
-    background-color: chartreuse;
-    width: 500px;
+    margin-top: 10px;
+    margin-left: 450px;
+    background-color: rgb(83, 141, 25);
+    width: 50%;
     height: 500px;
     color: black;
+    font-size: 200%;
+}
+.memberdiv{
+    border:solid black 2px;
 }
