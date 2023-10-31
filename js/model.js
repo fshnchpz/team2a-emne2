@@ -52,7 +52,7 @@ const model = {
                     name: 'Lars Monsen',
                     username: 'user0',
                     password: '1234',
-                    location: '',
+                    location: 'Telemark & Vestfold, Skien',
                     favorites: [],     //trip id
                     myTrips: [],
                 },
@@ -61,7 +61,7 @@ const model = {
                     name: 'Anita',
                     username: 'user1',
                     password: '1234',
-                    location: '',
+                    location: 'Vestfold, Larvik',
                     favorites: [0],     //trip id
                     myTrips: [],
                 },
