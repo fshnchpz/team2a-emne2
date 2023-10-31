@@ -37,7 +37,7 @@ function logIn()
         {
             model.input.loginDetails.userName = '';
             model.input.loginDetails.password = '';
-            model.app.currentUser = user.name;
+            model.app.currentUser = user.username;
             goToSite('main')
             getHTML_header('createUserpage');
             userFound = true; // Set the flag to true

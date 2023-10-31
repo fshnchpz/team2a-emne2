@@ -10,9 +10,9 @@ function viewTrails()
         <div class="grid">
     `;
 
-    if (data.length >= tur_card_max)
+    if (data.length >= tur_card_max + (tur_card_max * tur_cardPage))
     {
-        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < tur_card_max; tur_id++)
+        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < (tur_card_max + (tur_card_max * tur_cardPage)); tur_id++)
         {
             html += getTrailCard(tur_id);
         }
@@ -29,7 +29,7 @@ function viewTrails()
         </div>
         <div class="carousel_container">
             <div class="arrow" onclick="carousel_previous()">◄</div>
-            ${showPageNumber}
+            ${showPageNumber()}
             <div class="arrow" onclick="carousel_next()">►</div>
         </div>
     `;
@@ -38,15 +38,20 @@ function viewTrails()
 
 function showPageNumber()
 {
-    // let pageCounter = Math.ceil(data.length / tur_card_max);
+    let pageCounter = Math.ceil(data.length / tur_card_max);
     let pageNumber = '';
     for (let i = 0; i < pageCounter; i++)
     {
-        pageNumber += `
-        <div class="circle" onclick="${tur_cardPage = i}, viewTrails()">${i + 1}</div>
+        pageNumber += /*HTML*/`
+            <div class="circle" onclick="goCardPage(${i})">${i + 1}</div>
         `;
     }
     return pageNumber;
+}
+
+function goCardPage(page) {
+    tur_cardPage = page;
+    updateview();
 }
 
 function getTrailCard(tur_id)
@@ -125,10 +130,28 @@ function iconsLoop(tur_id)
     return html;
 }
 
-// function carousel_next(tur_id) {
-//     tur_id = (tur_id + 1 < imagearray.length) ? imageindex + 1 : 0;
-// }
+function carousel_next() {
+    let maxPages = Math.floor(data.length / tur_card_max);
+    let page = tur_cardPage;
 
-// function carousel_previous(tur_id) {
-//     imageindex = (imageindex - 1 >= 0) ? imageindex - 1 : imagearray.length - 1;
-// }
+    if (tur_cardPage == maxPages) {
+        page = 0;
+    } else {
+        page++;
+    }
+
+    goCardPage(page);
+}
+
+function carousel_previous() {
+    let maxPages = Math.floor(data.length / tur_card_max);
+    let page = tur_cardPage;
+
+    if (tur_cardPage == 0) {
+        page = maxPages;
+    } else {
+        page--;
+    }
+
+    goCardPage(page);
+}

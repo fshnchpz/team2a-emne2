@@ -25,7 +25,8 @@ function getHTML_turViewMode() {
     });
 
     let isFavorite = false;
-    if (!model.app.currentUser == '') {
+    
+    if (model.app.currentUser.length > 0) {
         const curUser = model.data.users.find(User => {
             return User.username === model.app.currentUser;
         });

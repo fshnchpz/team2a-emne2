@@ -6,6 +6,10 @@ function getHTML_header()
     let LoginText = ``;
     let CurrentUserText = ``;
 
+    const curUser = model.data.users.find(User => {
+        return User.username === model.app.currentUser;
+    });
+
     // Dette skjekker om brukeren er logget inn og vil derfor endre om det står logg inn eller logg ut.
     if (model.app.currentUser === '')
     {
@@ -21,7 +25,7 @@ function getHTML_header()
         LoginText = 'Logg ut';
         CurrentUserText = `
         <div class="user_content">
-            <div class="user_text">${model.app.currentUser}</div>
+            <div class="user_text">${curUser.name}</div>
             <div class="acc_ico_user"/><div>
         </div>
         `;
