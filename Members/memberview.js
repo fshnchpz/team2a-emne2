@@ -41,6 +41,7 @@ function getMemberCard(user_id) {
             
             <div class="role">${User.admin ? 'Administrator' : 'Medlem'}</div>
             <div class="name">${User.name}</div>
+            <div class="userlocation">${User.location}</div>
             <button class="message" onclick="MessageMember('${User.username}')">Send melding</button>
         </div>
     `; 

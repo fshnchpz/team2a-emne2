@@ -5,6 +5,8 @@ function getHTML_header()
     let HTML = ``;
     let LoginText = ``;
     let CurrentUserText = ``;
+    
+    const onPage = model.app.currentPage;
 
     const curUser = model.data.users.find(User => {
         return User.username === model.app.currentUser;
@@ -30,6 +32,7 @@ function getHTML_header()
         </div>
         `;
     }
+    
 
     HTML += /*HTML*/`
 
@@ -52,11 +55,11 @@ function getHTML_header()
         <!-- Linjen med knapper under bakgrunnsbildet -->
         <div class="topMainPagesBtns">
             <!-- Turer knappen -->
-            <div onclick="goToSite('trips')" class="pages">Turer</div>
+            <div onclick="goToSite('trips')" class="pages ${onPage == 'main' || onPage == 'trips' ? 'active' : ''}">Turer</div>
             <!-- Profiler knappen -->
-            <div onclick="goToSite('profile')" class="pages">Profil</div>
+            <div onclick="goToSite('profile')" class="pages ${onPage == 'profile' ? 'active' : ''}">Profil</div>
             <!-- Medlemmer knappen -->
-            <div onclick="goToSite('members')" class="pages">Medlemmer</div>
+            <div onclick="goToSite('members')" class="pages ${onPage == 'members' ? 'active' : ''}">Medlemmer</div>
             <!-- Bruker knappen + account icon -->
             <div id="topMainPageAccountBtn" onclick="goToSite('profile')" class="topMainPageAccountBtn">${CurrentUserText}</div>
         </div>

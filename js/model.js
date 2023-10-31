@@ -1,7 +1,7 @@
 const model = {
     app: {
         currentUser: '',
-        currentPage: '', // main / trails / profile / users / login/createUser
+        currentPage: 'trips', // main / trips / profile / members / login/createUser
         admin: '',
         currentTrip: null,
     },

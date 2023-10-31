@@ -71,6 +71,14 @@
 	font-weight: 600;
     z-index: 1;
 }
+.MemberCard > .userlocation {
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins';
+	font-size: 15px;
+    color:#5a5a5a;
+    z-index: 1;
+}
 .MemberCard > .role {
     display: flex;
     justify-content: center;
@@ -99,9 +107,10 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
+    transition: all ease 0.5s;
 }
 .MemberCard > button:hover {
-	background-color:rgb(109, 109, 109);
+	background-color:#818181;
 }
 .MemberCard > button:active {
 	position:relative;
