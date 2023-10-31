@@ -5,42 +5,40 @@ function selection(list) {
 
     if (list === 'favorite') {
         html = /*html*/`
-        <div class="content">
             ${addMyFavoritesList()}
-        </div >
         `;
     } else if (list === 'trips') {
         html = /*html*/`
-        <div class="addBtn" >Legg til ny tur</div>
-        <div class="content">
             ${addMyTripsList()}
-        </div>
         `;
     }
     return html;
 }
 
 function addMyFavoritesList() {
+    let html = '';
     for (let user of model.data.users) {
-        if (user[model.app.currentUser]) {
-            console.log('nei')
+        if (user.username === model.app.currentUser) {
+            for (let tur_id of user.favorites) {
+                html += getTrailCard(tur_id);
+            }
+            return html
+        } else if (('' === model.app.currentUser)) {
+            return '';
         }
     }
-    return `
-    <div class="tur"></div>
-    <div class="tur"></div>
-    <div class="tur"></div>
-    <div class="tur"></div>
-    <div class="tur"></div>
-    `;
 }
 
 function addMyTripsList() {
-    return `
-    <div class="tur"></div>
-    <div class="tur"></div>
-    <div class="tur"></div>
-    <div class="tur"></div>
-    <div class="tur"></div>
-    `;
+    let html = '';
+    for (let user of model.data.users) {
+        if (user.username === model.app.currentUser) {
+            for (let id of user.myTrips) {
+                html += getTrailCard(id);
+            }
+            return html
+        } else if (('' === model.app.currentUser)) {
+            return '';
+        }
+    }
 }

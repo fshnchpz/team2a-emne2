@@ -1,19 +1,14 @@
 "use strict";
 
-let noe = '';
-
 function profileView() {
+    let list;
     let html = /*html*/ `
-    <div class="container">
-        <div class="profileBtns">
-            <div class="categories">
-                <div onclick="noe = 'favorite', profileView()">Mine Favoritter</div>
-                <div onclick="noe = 'trips', profileView()">Mine turer</div>
-            </div>
-            <div class="editProfileBtn" onclick="model.app.currentPage = 'addTrip'">Rediger profil</div>
+        <div class="profileContainer">
+            <div onclick="list = 'favorite', profileView()">Mine Favoritter</div>
+            <div onclick="list = 'trips', profileView()">Mine turer</div>
+            <div onclick="">Rediger profil</div>
+            ${selection(list)}
         </div>
-        ${selection(noe)}
-    </div>
     `;
     document.getElementById('app').innerHTML = html;
 }
