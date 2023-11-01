@@ -66,9 +66,9 @@
     background-color: #6d6d6d;
 }
 
-.snap_top > .green {
+.green {
     background: #4c7a34;
 }
-.snap_top > .green:hover {
+.green:hover {
     background: #73b84e;
 }

@@ -2,7 +2,7 @@ const model = {
     app: {
         currentUser: '',
         currentPage: 'trips', // main / trips / profile / members / login/createUser
-        admin: '',
+        admin: false,
         currentTrip: null,
         sidepanel_mode: '',
     },

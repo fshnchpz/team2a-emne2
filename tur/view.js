@@ -14,7 +14,7 @@ function getHTML_turViewMode() {
     let HTML = ``;
 
     model.app.sidepanel_mode = 'turView';
-    
+
     //Hent ingenting hvis en tur ikke er valgt
     if (model.app.currentTrip === null) {
         return;
@@ -144,33 +144,33 @@ function getHTML_turViewMode() {
                         <div class="details">
                             <div class="data_field">
                                 <div class="icon location"></div>
-                                <input type="text" id="trip_location" placeholder="Fylke/by & adresse" class="text" value="${model.input.tripEditAdd.location}" />
+                                <input type="text" id="trip_location" placeholder="Fylke/by & adresse" class="text" value="${model.input.tripEditAdd.location}" onchange="model.input.tripEditAdd.location = this.value" />
                             </div>
                             <div class="data_field">
                                 <div class="icon tur_type"></div>
-                                <input type="text" id="trip_accessability" placeholder="Type tur, fra A til B" class="text" value="${model.input.tripEditAdd.accessability}" />
+                                <input type="text" id="trip_accessability" placeholder="Type tur, fra A til B" class="text" value="${model.input.tripEditAdd.accessability}" onchange="model.input.tripEditAdd.accessability = this.value" />
                             </div>
                             <div class="data_field">
                                 <div class="icon measurement"></div>
-                                <input type="number" id="trip_distance" placeholder="Distanse (km)" class="text" value="${model.input.tripEditAdd.distance}" />
+                                <input type="number" id="trip_distance" placeholder="Distanse (km)" class="text" value="${model.input.tripEditAdd.distance}" onchange="model.input.tripEditAdd.distance = this.value" />
                             </div>
                             <div class="data_field">
                                 <div class="icon timeclock"></div>
-                                <input type="number" id="trip_time" placeholder="Tid (minutter)" class="text" value="${model.input.tripEditAdd.time}" />
+                                <input type="number" id="trip_time" placeholder="Tid (minutter)" class="text" value="${model.input.tripEditAdd.time}" onchange="model.input.tripEditAdd.time = this.value" />
                             </div>
                             <div class="data_field">
                                 <div class="icon calender"></div>
-                                <input type="text" id="trip_season" placeholder="Sesong fra: (f.eks: Januar - Februar)" class="text" value="${model.input.tripEditAdd.season}" />
+                                <input type="text" id="trip_season" placeholder="Sesong fra: (f.eks: Januar - Februar)" class="text" value="${model.input.tripEditAdd.season}" onchange="model.input.tripEditAdd.season = this.value" />
                             </div>
                             <div class="data_field">
                                 <div class="icon intensity"></div>
-                                <input type="number" id="trip_difficulty" placeholder="Vanskelighets grad (1-10)" class="text" value="${model.input.tripEditAdd.difficulty}" min=1 max=10 />
+                                <input type="number" id="trip_difficulty" placeholder="Vanskelighets grad (1-10)" class="text" value="${model.input.tripEditAdd.difficulty}" min=1 max=10 onchange="model.input.tripEditAdd.difficulty = this.value" />
                             </div>
                         </div>
 
                         <div class="description">
                             <div class="title">Beskrivelse</div>
-                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" value="asdasdasd" rows=10 cols=1>${model.input.tripEditAdd.about}</textarea>
+                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" value="asdasdasd" rows=10 cols=1 onchange="model.input.tripEditAdd.about = this.innerHTML">${model.input.tripEditAdd.about}</textarea>
                         </div>
 
                         <!-- Unøvdvendig, har ingen sted i modell til å lagre eller laste dette
