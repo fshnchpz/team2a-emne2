@@ -1,18 +1,24 @@
 "use strict";
 
+var list = '';
+
 function profileView() {
-    let list;
+
     let html = /*html*/ `
+    <div class="profileWrapper">
         <div class="profileContainer">
-            <div>
-                <div onclick="list = 'favorite', profileView()">Mine Favoritter</div>
-                <div onclick="list = 'trips', profileView()">Mine turer</div>
+            <div class="top_buttons">
+                <div class="button" onclick="profile_filter('favorite')">Mine Favoritter</div>
+                <div class="button" onclick="profile_filter('trips')">Mine turer</div>
+                ${list == 'trips' && model.app.currentUser.length > 0 ? `<div class="button" onclick="add_trip()">Legg til tur</div>` : ''}
+                <div class="button right" onclick="">Rediger profil</div>
             </div>
-            <div>
-                <div onclick="">Rediger profil</div>
+            <div class="list_grid">
+                ${selection(list)}
             </div>
-            ${selection(list)}
         </div>
+        </div>
+        
     `;
     document.getElementById('app').innerHTML = html;
 }

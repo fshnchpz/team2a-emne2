@@ -56,20 +56,25 @@ function goCardPage(page) {
 
 function getTrailCard(tur_id)
 { //dette viser et kort om gangen
+
+    const trip = data.find(trail => {
+        return trail.id === tur_id;
+    });
+
     let html = /*html*/ `
-        <div class="card" onClick="turView_openCard(${data[tur_id].id})">
-            <div class="prev_image" style="background: url('${data[tur_id].image[0]}') no-repeat; background-size: 100% auto;">
+        <div class="card" onClick="turView_openCard(${trip.id})">
+            <div class="prev_image" style="background: url('${trip.image[0]}') no-repeat; background-size: 100% auto;">
                 <img class="star"/>
             </div>
             <div class="card_location">
-                <div class="municipality">${data[tur_id].location}</div>
+                <div class="municipality">${trip.location}</div>
             </div>
             <div class="card_data">
-                <div class="name">${data[tur_id].name}</div>
-                <div class="distance"><img class="card_icons" src="../images/Square_Foot_Icon_4.png"/>${data[tur_id].distance} km</div>
-                <div class="time"><img class="card_icons" src="../images/Watch_Later_Icon_4.png"/>${timeConvert(data[tur_id].time)}</div>
+                <div class="name">${trip.name}</div>
+                <div class="distance"><img class="card_icons" src="../images/Square_Foot_Icon_4.png"/>${trip.distance} km</div>
+                <div class="time"><img class="card_icons" src="../images/Watch_Later_Icon_4.png"/>${timeConvert(trip.time)}</div>
             </div>
-            <div class="card_markings">${iconsLoop(tur_id)}</div>
+            <div class="card_markings">${iconsLoop(trip)}</div>
         </div>
         `;
     return html;
@@ -107,23 +112,23 @@ function timeConvert(minutes)
     return Text;
 }
 
-function iconsLoop(tur_id)
+function iconsLoop(tur)
 {
     let html = ``;
 
-    if (data[tur_id].parking)
+    if (tur.parking)
     {
         html += `<img class="card_markingStyle" src="../images/Local_Parking_Icon_8.png"/>`;
     }
-    if (data[tur_id].walking)
+    if (tur.walking)
     {
         html += `<img class="card_markingStyle" src="../images/Directions_Walk_Icon_2.png"/>`;
     }
-    if (data[tur_id].wheelchair)
+    if (tur.wheelchair)
     {
         html += `<img class="card_markingStyle" src="../images/Accessible_Icon_8.png"/>`;
     }
-    if (data[tur_id].bike)
+    if (tur.bike)
     {
         html += `<img class="card_markingStyle" src="../images/Directions_Bike_Icon_1.png"/>`;
     }

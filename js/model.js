@@ -4,6 +4,7 @@ const model = {
         currentPage: 'trips', // main / trips / profile / members / login/createUser
         admin: '',
         currentTrip: null,
+        sidepanel_mode: '',
     },
     input: {
         sorting: {
@@ -62,8 +63,8 @@ const model = {
                     username: 'user1',
                     password: '1234',
                     location: 'Vestfold, Larvik',
-                    favorites: [0],     //trip id
-                    myTrips: [],
+                    favorites: [0,2,11],     //trip id
+                    myTrips: [0,11,2],
                 },
 
             ],

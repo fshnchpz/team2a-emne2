@@ -12,9 +12,9 @@ function turView_openCard(card_id) {
 
 function getHTML_turViewMode() {
     let HTML = ``;
-    let confirm = 'godkjent';
 
-
+    model.app.sidepanel_mode = 'turView';
+    
     //Hent ingenting hvis en tur ikke er valgt
     if (model.app.currentTrip === null) {
         return;
@@ -41,17 +41,7 @@ function getHTML_turViewMode() {
     if (!model.input.addEdit) {
     HTML = /*HTML*/`
     <div class="tur_Container">
-        <div class="SidePanel_container">
-            <div class="snap_top">
-                <div class="editContainerText">Panel</div>
-                <div class="editBtnUser" onclick="ToggleEditMode()">${!model.input.addEdit ? 'Rediger' : 'Avbryt'}</div>
-            </div>
-            <div class="snap_bottom">
-                <div class="side_panel_divider"></div>
-                <div class="status_text_label">Status</div>
-                <div class="status_text">${confirm}</div>
-            </div>
-        </div>
+        ${viewSidePanel()}
         <div class="tur_Page">
             <div class="tur_Image">${getTripIMG()}</div>
             <div class="tur_Name">${trip.name}</div>
@@ -134,17 +124,7 @@ function getHTML_turViewMode() {
     } else if (model.input.addEdit) {
         HTML = /*HTML*/`
             <div class="tur_Container">
-            <div class="SidePanel_container">
-                <div class="snap_top">
-                    <div class="editContainerText">Panel</div>
-                    <div class="editBtnUser" onclick="ToggleEditMode()">${!model.input.addEdit ? 'Rediger' : 'Avbryt'}</div>
-                </div>
-                <div class="snap_bottom">
-                    <div class="side_panel_divider"></div>
-                    <div class="status_text_label">Status</div>
-                    <div class="status_text">${confirm}</div>
-                </div>
-            </div>
+            ${viewSidePanel()}
             <div class="tur_Page">
                 <div class="tur_Image">${getTripIMG()}</div>
                 <div class="tur_ImageUpload">
