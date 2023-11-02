@@ -53,14 +53,14 @@ function img_map_update() {
     const img_file = img_map.files[0];
     let img_srclink = URL.createObjectURL(img_file);
     document.getElementById('mapIMG').src = img_srclink;
-
 }
+
 function img_trip_update() {
     const img_trip = document.getElementById('img_trip');
     const img_file = img_trip.files[0];
     let img_srclink = URL.createObjectURL(img_file);
+    model.input.tripEditAdd.image.push(img_srclink);
     document.getElementById('tripIMG').src = img_srclink;
-
 }
 
 function ToggleEditMode() {

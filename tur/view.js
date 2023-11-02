@@ -25,7 +25,7 @@ function getHTML_turViewMode() {
     });
 
     let isFavorite = false;
-    
+
     if (model.app.currentUser.length > 0) {
         const curUser = model.data.users.find(User => {
             return User.username === model.app.currentUser;
@@ -39,11 +39,11 @@ function getHTML_turViewMode() {
     }
 
     if (!model.input.addEdit) {
-    HTML = /*HTML*/`
+        HTML = /*HTML*/`
     <div class="tur_Container">
         ${viewSidePanel()}
         <div class="tur_Page">
-            <div class="tur_Image">${getTripIMG()}</div>
+            <div class="tur_Image">${getTripIMG()}</div>     <!-- →←><⟫⟪↠↞↣↢↫↬⇀↼⇁↽⇒⇐⇨⇦⇢⇠⇽⇾▶◀◁▷◄►◅▻◂▸◃▹≺≻⋗⋖⨠⩾⪁⪂⪧⪦⫏⫐ --->
             <div class="tur_Name">${trip.name}</div>
 
                 <div class="tur_Data">
@@ -120,7 +120,7 @@ function getHTML_turViewMode() {
                 </div>
             </div>
         </div>
-        `; 
+        `;
     } else if (model.input.addEdit) {
         HTML = /*HTML*/`
             <div class="tur_Container">
@@ -132,7 +132,7 @@ function getHTML_turViewMode() {
                     <input type="file" id="img_trip" name="img_trip" accept=".jpg,.png,.bmp,.jpeg" style="opacity: 0; display: none;" onChange="img_trip_update()" />
                 </div>
                 
-                <input type="text" id="trip_name" placeholder="Tur navn" class="tur_Name" value="${model.input.tripEditAdd.name}"/>
+                <input type="text" id="trip_name" placeholder="Tur navn" class="tur_Name" value="${model.input.tripEditAdd.name}" onchange="model.input.tripEditAdd.name = this.value"/>
 
                 <div class="tur_Data">
                     <div class="left">
@@ -170,7 +170,7 @@ function getHTML_turViewMode() {
 
                         <div class="description">
                             <div class="title">Beskrivelse</div>
-                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" value="asdasdasd" rows=10 cols=1 onchange="model.input.tripEditAdd.about = this.innerHTML">${model.input.tripEditAdd.about}</textarea>
+                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" rows=10 cols=1 onchange="console.log(this.value), model.input.tripEditAdd.about = this.value">${model.input.tripEditAdd.about}</textarea>
                         </div>
 
                         <!-- Unøvdvendig, har ingen sted i modell til å lagre eller laste dette
@@ -210,8 +210,8 @@ function getHTML_turViewMode() {
                 </div>
             </div>
         </div>
-        `; 
-    } 
+        `;
+    }
     document.getElementById('app').innerHTML = HTML;
 }
 
@@ -226,18 +226,34 @@ function getMapIMG() {
     else {
         return '';
     }
-    
 }
+
+let imageNumber = 0;
 
 function getTripIMG() {
     const trip = model.data.trips.find(trail => {
         return trail.id === model.app.currentTrip;
     });
-    if (trip.image.length > 0) {
-        return `<img id="tripIMG" class="tripIMG" src="${trip.image[0]}"/>`;
+    if (model.input.addEdit) {
+        if (imageNumber > model.input.tripEditAdd.image.length) {
+            imageNumber = 0;
+        }
+        if (imageNumber < 0) {
+            imageNumber = model.input.tripEditAdd.image.length;
+        }
+    } else {
+        if (imageNumber >= trip.image.length) {
+            imageNumber = 0;
+        }
+        if (imageNumber < 0) {
+            imageNumber = trip.image.length - 1;
+        }
     }
-    else {
-        return '';
+
+    if (trip.image[imageNumber] === undefined) {
+        return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`
+    } else {
+        return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="${trip.image[imageNumber]}"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`;
     }
 }
 

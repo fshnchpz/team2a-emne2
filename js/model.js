@@ -78,11 +78,9 @@ const model = {
             location: 'Telemark, Øst-Telemark, Lifjell',
             distance: 5.0,        //number
             time: 180,            //number
-            image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/rwtywah4yjybotyg1bvf'],          //src/link
+            image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/rwtywah4yjybotyg1bvf', 'https://www.datocms-assets.com/55942/1634105507-tips-til-fjelltur.jpg'],          //src/link
             season: ' Apr - nov',
-            // accessability: `Adkomst med egen bil
-            //                 Fra Notodden kjører du Gavlesjåvegen, (her må du forbi en bom med skiltgjenkjenning)
-            //                 og parkerer på stor parkeringsplass på Myregvarv.`,
+            accessability: "Fra Notodden kjører du Gavlesjåvegen, (her må du forbi en bom med skiltgjenkjenning og parkerer på stor parkeringsplass på Myregvarv.",   //,Adkomst med egen bil
             map: '',            //src/link
             difficulty: 5,      //number 1-10
             parking: false,         //boolean

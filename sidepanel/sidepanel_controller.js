@@ -6,6 +6,7 @@ function saveEditMode(){
     const inputs = model.input.tripEditAdd;
     tur.name = inputs.name;
     tur.about = inputs.about;
+    tur.accessability = inputs.accessability;
     tur.location = inputs.location;
     tur.distance = inputs.distance;
     tur.time = inputs.time;

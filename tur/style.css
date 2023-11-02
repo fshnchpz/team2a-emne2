@@ -27,16 +27,35 @@
 .tur_Image {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 537px;
     border-radius: 1rem;
     margin: 1rem 3rem 1rem 3rem;
     overflow: hidden;
 }
 
+.tur_Image > div {
+    font-size: x-large;
+    margin: 2%;
+    cursor: pointer;
+}
+
+.tur_Image > div:hover {
+    color: #2e942e;
+}
+
+.imageOverlay {
+    width: 80dvh;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+
 .tripIMG {
-    max-height: 537px;
+    height: 53dvh;
     border-radius: 1rem;
 }
+
 
 .tur_Name {
     height: 40px;
