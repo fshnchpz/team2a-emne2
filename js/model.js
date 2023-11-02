@@ -52,21 +52,48 @@ const model = {
             [
                 {
                     admin: false,           //boolean
-                    name: 'Lars Monsen',
-                    username: 'user0',
-                    password: '1234',
-                    location: 'Telemark & Vestfold, Skien',
+                    name: "Lars Monsen",
+                    username: "user0",
+                    password: "1234",
+                    location: "Telemark & Vestfold, Skien",
                     favorites: [],     //trip id
                     myTrips: [],
                 },
                 {
                     admin: true,           //boolean
-                    name: 'Anita',
-                    username: 'user1',
-                    password: '1234',
-                    location: 'Vestfold, Larvik',
-                    favorites: [0,2,11],     //trip id
-                    myTrips: [0,11,2],
+                    name: "Anita",
+                    username: "user1",
+                    password: "1234",
+                    location: "Vestfold, Larvik",
+                    favorites: [0, 2, 11],     //trip id
+                    myTrips: [0, 11, 2],
+                },
+                {
+                    admin: false,           //boolean
+                    name: "Bear Grylls",
+                    username: "user3",
+                    password: "1234",
+                    location: "England",
+                    favorites: [4],     //trip id
+                    myTrips: [],
+                },
+                {
+                    admin: false,           //boolean
+                    name: "Chuck Norris",
+                    username: "user5",
+                    password: "1234",
+                    location: "AMERICA!",
+                    favorites: [1, 2, 3],     //trip id
+                    myTrips: [],
+                },
+                {
+                    admin: false,           //boolean
+                    name: "Stephen Robert Irwin",
+                    username: "user5",
+                    password: "1234",
+                    location: "australia",
+                    favorites: [2, 6, 8],     //trip id
+                    myTrips: [],
                 },
 
             ],
