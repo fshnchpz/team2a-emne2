@@ -1,8 +1,10 @@
 
 "use strict"
 
-function turView_openCard(card_id) {
-    const trip = model.data.trips.find(trail => {
+function turView_openCard(card_id)
+{
+    const trip = model.data.trips.find(trail =>
+    {
         return trail.id === card_id;
     });
 
@@ -10,36 +12,44 @@ function turView_openCard(card_id) {
     getHTML_turViewMode();
 }
 
-function getHTML_turViewMode() {
+function getHTML_turViewMode()
+{
     let HTML = ``;
 
     model.app.sidepanel_mode = 'turView';
 
     //Hent ingenting hvis en tur ikke er valgt
-    if (model.app.currentTrip === null) {
+    if (model.app.currentTrip === null)
+    {
         return;
     }
 
-    const trip = model.data.trips.find(trail => {
+    const trip = model.data.trips.find(trail =>
+    {
         return trail.id === model.app.currentTrip;
     });
 
     let isFavorite = false;
-    
-    if (model.app.currentUser.length > 0) {
-        const curUser = model.data.users.find(User => {
+
+    if (model.app.currentUser.length > 0)
+    {
+        const curUser = model.data.users.find(User =>
+        {
             return User.username === model.app.currentUser;
         });
 
-        if (curUser.favorites.includes(trip.id)) {
+        if (curUser.favorites.includes(trip.id))
+        {
             isFavorite = true;
         }
-    } else {
+    } else
+    {
         isFavorite = false;
     }
 
-    if (!model.input.addEdit) {
-    HTML = /*HTML*/`
+    if (!model.input.addEdit)
+    {
+        HTML = /*HTML*/`
     <div class="tur_Container">
         ${viewSidePanel()}
         <div class="tur_Page">
@@ -120,8 +130,9 @@ function getHTML_turViewMode() {
                 </div>
             </div>
         </div>
-        `; 
-    } else if (model.input.addEdit) {
+        `;
+    } else if (model.input.addEdit)
+    {
         HTML = /*HTML*/`
             <div class="tur_Container">
             ${viewSidePanel()}
@@ -210,38 +221,46 @@ function getHTML_turViewMode() {
                 </div>
             </div>
         </div>
-        `; 
-    } 
+        `;
+    }
     document.getElementById('app').innerHTML = HTML;
 }
 
 
-function getMapIMG() {
-    const trip = model.data.trips.find(trail => {
+function getMapIMG()
+{
+    const trip = model.data.trips.find(trail =>
+    {
         return trail.id === model.app.currentTrip;
     });
-    if (trip.map != '') {
+    if (trip.map != '')
+    {
         return `<img id="mapIMG" class="mapIMG" src="${trip.map}"/>`;
     }
-    else {
+    else
+    {
         return '';
     }
-    
 }
 
-function getTripIMG() {
-    const trip = model.data.trips.find(trail => {
+function getTripIMG()
+{
+    const trip = model.data.trips.find(trail =>
+    {
         return trail.id === model.app.currentTrip;
     });
-    if (trip.image.length > 0) {
+    if (trip.image.length > 0)
+    {
         return `<img id="tripIMG" class="tripIMG" src="${trip.image[0]}"/>`;
     }
-    else {
+    else
+    {
         return '';
     }
 }
 
-function viewMarkings_editmode() {
+function viewMarkings_editmode()
+{
     document.getElementById('marking_box').innerHTML = `
         <div class="squarebtn ${model.input.tripEditAdd.parking ? 'active' : ''}" onClick="tripEdit_toggle('Parking')"><img src="../images/Local_Parking_Icon_8.png"/></div>
         <div class="squarebtn ${model.input.tripEditAdd.walking ? 'active' : ''}" onClick="tripEdit_toggle('Walking')"><img src="../images/Directions_Walk_Icon_2.png"/></div>
@@ -250,6 +269,7 @@ function viewMarkings_editmode() {
     `;
 }
 
-function view_imgMap_edit() {
+function view_imgMap_edit()
+{
     document.getElementById('map_image').innerHTML = `<img id="mapIMG" class="mapIMG" src="${model.input.tripEditAdd.map}" />`;
 }
