@@ -5,8 +5,8 @@ function updateview()
     switch (hvasomhelst)
     {
         case 'main':
-            document.getElementById('app').innerHTML = '' //erstattes siden
-            console.log('switch result:Main')
+            viewTrails();
+            console.log('switch result:Trips')
             break;
         case 'profile':
             profileView();

@@ -5,23 +5,39 @@ let tur_cardPage = 0;
 
 function viewTrails()
 { //dette viser alle turene som kort
+
+    model.app.sidepanel_mode = 'trails';
+    const filterEnabled = model.input.sorting.enabled;
+
     let html = /*html*/ `
+    ${viewSidePanel()}
+
     <div class="cardContainer">
         <div class="grid">
     `;
 
-    if (data.length >= tur_card_max + (tur_card_max * tur_cardPage))
+    // Karusellen for tur kort
+    if (!filterEnabled) 
     {
-        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < (tur_card_max + (tur_card_max * tur_cardPage)); tur_id++)
+        if (data.length >= tur_card_max + (tur_card_max * tur_cardPage))
         {
-            html += getTrailCard(tur_id);
+            for (let tur_id = (tur_card_max * tur_cardPage); tur_id < (tur_card_max + (tur_card_max * tur_cardPage)); tur_id++)
+            {
+                html += getTrailCard(tur_id);
+            }
+        }
+        else
+        {
+            for (let tur_id = (tur_card_max * tur_cardPage); tur_id < data.length; tur_id++)
+            {
+                html += getTrailCard(tur_id);
+            }
         }
     }
-    else
-    {
-        for (let tur_id = (tur_card_max * tur_cardPage); tur_id < data.length; tur_id++)
-        {
-            html += getTrailCard(tur_id);
+    else { // Hvis filter er på, så skal det kun vise kort som stemmer med filter
+
+        for (let tur of model.input.sorting.trips) {
+            html += getTrailCard(tur.id);
         }
     }
 
@@ -159,4 +175,21 @@ function carousel_previous() {
     }
 
     goCardPage(page);
+}
+
+
+
+
+
+function filterUpdate() {
+    const sorting = model.input.sorting;
+    sorting.trips = [];
+    //model.input.sorting.trips <--
+    //sorting.location = 'Oslo'
+    //model.data.trips = [] <- liste på alle turer
+    sorting.trips = model.data.trips.filter( (tur) => tur.location.includes(sorting.location) )
+
+    //.includes("FylkeNavn")
+
+    //Liste på turer som skal vises, skal putte inn turer som tilhører filtrene
 }

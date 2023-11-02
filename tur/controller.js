@@ -13,7 +13,7 @@ function dataExample_generate() {
         Et greit og fint terreng, men enkelte bratte lier med noe steinete underlag, må man beregne på turen. Ellers mye bra og god sti. På en liten del av løypa forekommer enkelte bløte partier, men dette er minimalt.
         
         Nå du har gått ca 1,2 km kommer du til et stidele. Denne stien går mot venstre, sammen med stien til Vannverket. Stien er godt merket og skiltet. Hele turen er på ca 2,2 km og tar ca en time.`,
-        location: 'Vestfold og Telemark, Porsgrunn',
+        location: 'Telemark & Vestfold, Porsgrunn',
         distance: 2.2,        //number
         time: 60,            //number
         image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/vgpssg7fmfqmro2whsm1'],          //src/link

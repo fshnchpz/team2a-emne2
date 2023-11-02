@@ -72,3 +72,101 @@
 .green:hover {
     background: #73b84e;
 }
+
+.goLeft {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+.sp_img {
+	height: 100%;
+	margin-right: 0;
+	margin-left: auto;
+	filter: invert(100%);
+}
+
+.inputPreview { 
+	display: flex;
+	flex-direction: column;
+	gap: 5px; 
+	justify-content: center;	
+}
+
+.inputPreview > .checkdiv {
+	display: flex;
+	height: 20px;
+	width: 100%;
+}
+.css-checkbox { 
+	position: absolute;
+	 overflow: hidden;
+	  clip: rect(0 0 0 0);
+	   height: 1px;
+	    width: 1px;
+		 margin: -1px;
+		  padding: 0;
+		   border: 0;
+}
+
+.css-checkbox + .checkLabel { 
+	position: relative;
+	font-size: 14px; 
+	cursor: pointer; 
+	display: inline-flex; 
+	align-items: center; 
+	height: 18px; 
+	color: rgb(0, 0, 0);
+
+}
+
+.css-checkbox + .checkLabel::before { 
+	content: " "; 
+	display: inline-block; 
+	vertical-align: middle; 
+	margin-right: 3px; 
+	width: 14px; 
+	height: 14px; 
+	background-color: white; 
+	border-width: 2px; 
+	border-style: solid; 
+	border-color: rgb(97, 97, 97); 
+	border-radius: 50px; 
+	box-shadow: none; 
+}
+
+.css-checkbox:checked + .checkLabel::after { 
+	content: "" ; 
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjM2IzYjNiIiBkPSJNNTEyIDI1NkM1MTIgMzk3LjQgMzk3LjQgNTEyIDI1NiA1MTJDMTE0LjYgNTEyIDAgMzk3LjQgMCAyNTZDMCAxMTQuNiAxMTQuNiAwIDI1NiAwQzM5Ny40IDAgNTEyIDExNC42IDUxMiAyNTZ6Ii8+PC9zdmc+"); 
+	background-repeat: no-repeat; 
+	background-size: 10px 10px; 
+	background-position: center center; 
+	position: absolute; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	margin-left: 0px; 
+	left: 0px; 
+	top: 0px; 
+	text-align: center; 
+	background-color: transparent; 
+	font-size: 10px; 
+	height: 18px; 
+	width: 18px; 
+}
+
+.selectFylke {
+	width: 190px;
+	height: 34px;
+	padding: 4px 8px 4px 8px;
+	color: #232323;
+	background-color: rgba(128, 128, 128, 0.187);
+	border-color: #FFFFFF;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 4px 4px 4px 4px;
+	font-family: "Helvetica";
+	font-weight: bold;
+	font-size: 14px;
+	text-align: left;
+}
