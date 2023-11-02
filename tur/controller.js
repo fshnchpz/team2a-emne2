@@ -102,4 +102,5 @@ function editMode_onChange() {
     model.input.tripEditAdd.season = document.getElementById('trip_season').value;
     model.input.tripEditAdd.difficulty = document.getElementById('trip_difficulty').value;
     model.input.tripEditAdd.about = document.getElementById('trip_about').value;
+    model.input.tripEditAdd.google_link = document.getElementById('trip_googleLink').value;
 }

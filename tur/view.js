@@ -199,7 +199,7 @@ function getHTML_turViewMode()
                             <div class="map_image" id="map_image">${getMapIMG()}</div>
                             <label for="img_map" class="input_mapImg">Last opp bilde av tur ruten</label>
                             <input type="file" id="img_map" name="img_map" accept=".jpg,.png,.bmp,.jpeg" style="opacity: 0" onChange="img_map_update()" />
-                            <input type="text" id="trip_googleLink" placeholder="Lenke til Google Maps" class="input_googlelink" value="${model.input.tripEditAdd.google_link}" />
+                            <input type="text" id="trip_googleLink" placeholder="Lenke til Google Maps" class="input_googlelink" onchange="editMode_onChange()" value="${model.input.tripEditAdd.google_link}" />
                         </div>
 
                         
