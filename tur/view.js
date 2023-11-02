@@ -1,8 +1,10 @@
 
 "use strict"
 
-function turView_openCard(card_id) {
-    const trip = model.data.trips.find(trail => {
+function turView_openCard(card_id)
+{
+    const trip = model.data.trips.find(trail =>
+    {
         return trail.id === card_id;
     });
 
@@ -10,17 +12,20 @@ function turView_openCard(card_id) {
     getHTML_turViewMode();
 }
 
-function getHTML_turViewMode() {
+function getHTML_turViewMode()
+{
     let HTML = ``;
 
     model.app.sidepanel_mode = 'turView';
 
     //Hent ingenting hvis en tur ikke er valgt
-    if (model.app.currentTrip === null) {
+    if (model.app.currentTrip === null)
+    {
         return;
     }
 
-    const trip = model.data.trips.find(trail => {
+    const trip = model.data.trips.find(trail =>
+    {
         return trail.id === model.app.currentTrip;
     });
 
@@ -31,10 +36,12 @@ function getHTML_turViewMode() {
             return User.username === model.app.currentUser;
         });
 
-        if (curUser.favorites.includes(trip.id)) {
+        if (curUser.favorites.includes(trip.id))
+        {
             isFavorite = true;
         }
-    } else {
+    } else
+    {
         isFavorite = false;
     }
 
@@ -132,7 +139,7 @@ function getHTML_turViewMode() {
                     <input type="file" id="img_trip" name="img_trip" accept=".jpg,.png,.bmp,.jpeg" style="opacity: 0; display: none;" onChange="img_trip_update()" />
                 </div>
                 
-                <input type="text" id="trip_name" placeholder="Tur navn" class="tur_Name" value="${model.input.tripEditAdd.name}" onchange="model.input.tripEditAdd.name = this.value"/>
+                <input type="text" id="trip_name" placeholder="Tur navn" class="tur_Name" value="${model.input.tripEditAdd.name}" onchange="editMode_onChange()"/>
 
                 <div class="tur_Data">
                     <div class="left">
@@ -144,33 +151,33 @@ function getHTML_turViewMode() {
                         <div class="details">
                             <div class="data_field">
                                 <div class="icon location"></div>
-                                <input type="text" id="trip_location" placeholder="Fylke/by & adresse" class="text" value="${model.input.tripEditAdd.location}" onchange="model.input.tripEditAdd.location = this.value" />
+                                <input type="text" id="trip_location" placeholder="Fylke/by & adresse" class="text" value="${model.input.tripEditAdd.location}" onchange="editMode_onChange()" />
                             </div>
                             <div class="data_field">
                                 <div class="icon tur_type"></div>
-                                <input type="text" id="trip_accessability" placeholder="Type tur, fra A til B" class="text" value="${model.input.tripEditAdd.accessability}" onchange="model.input.tripEditAdd.accessability = this.value" />
+                                <input type="text" id="trip_accessability" placeholder="Type tur, fra A til B" class="text" value="${model.input.tripEditAdd.accessability}" onchange="editMode_onChange()" />
                             </div>
                             <div class="data_field">
                                 <div class="icon measurement"></div>
-                                <input type="number" id="trip_distance" placeholder="Distanse (km)" class="text" value="${model.input.tripEditAdd.distance}" onchange="model.input.tripEditAdd.distance = this.value" />
+                                <input type="number" id="trip_distance" placeholder="Distanse (km)" class="text" value="${model.input.tripEditAdd.distance}" onchange="editMode_onChange()" />
                             </div>
                             <div class="data_field">
                                 <div class="icon timeclock"></div>
-                                <input type="number" id="trip_time" placeholder="Tid (minutter)" class="text" value="${model.input.tripEditAdd.time}" onchange="model.input.tripEditAdd.time = this.value" />
+                                <input type="number" id="trip_time" placeholder="Tid (minutter)" class="text" value="${model.input.tripEditAdd.time}" onchange="editMode_onChange()" />
                             </div>
                             <div class="data_field">
                                 <div class="icon calender"></div>
-                                <input type="text" id="trip_season" placeholder="Sesong fra: (f.eks: Januar - Februar)" class="text" value="${model.input.tripEditAdd.season}" onchange="model.input.tripEditAdd.season = this.value" />
+                                <input type="text" id="trip_season" placeholder="Sesong fra: (f.eks: Januar - Februar)" class="text" value="${model.input.tripEditAdd.season}" onchange="editMode_onChange()" />
                             </div>
                             <div class="data_field">
                                 <div class="icon intensity"></div>
-                                <input type="number" id="trip_difficulty" placeholder="Vanskelighets grad (1-10)" class="text" value="${model.input.tripEditAdd.difficulty}" min=1 max=10 onchange="model.input.tripEditAdd.difficulty = this.value" />
+                                <input type="number" id="trip_difficulty" placeholder="Vanskelighets grad (1-10)" class="text" value="${model.input.tripEditAdd.difficulty}" min=1 max=10 onchange="editMode_onChange()" />
                             </div>
                         </div>
 
                         <div class="description">
                             <div class="title">Beskrivelse</div>
-                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" rows=10 cols=1 onchange="console.log(this.value), model.input.tripEditAdd.about = this.value">${model.input.tripEditAdd.about}</textarea>
+                            <textarea type="text" id="trip_about" placeholder="Beskrivelse på turen og diverse informasjon" class="text" value="${model.input.tripEditAdd.about}" rows=10 cols=1 oninput="editMode_onChange()">${model.input.tripEditAdd.about}</textarea>
                         </div>
 
                         <!-- Unøvdvendig, har ingen sted i modell til å lagre eller laste dette
@@ -216,14 +223,18 @@ function getHTML_turViewMode() {
 }
 
 
-function getMapIMG() {
-    const trip = model.data.trips.find(trail => {
+function getMapIMG()
+{
+    const trip = model.data.trips.find(trail =>
+    {
         return trail.id === model.app.currentTrip;
     });
-    if (trip.map != '') {
+    if (trip.map != '')
+    {
         return `<img id="mapIMG" class="mapIMG" src="${trip.map}"/>`;
     }
-    else {
+    else
+    {
         return '';
     }
 }
@@ -257,7 +268,8 @@ function getTripIMG() {
     }
 }
 
-function viewMarkings_editmode() {
+function viewMarkings_editmode()
+{
     document.getElementById('marking_box').innerHTML = `
         <div class="squarebtn ${model.input.tripEditAdd.parking ? 'active' : ''}" onClick="tripEdit_toggle('Parking')"><img src="../images/Local_Parking_Icon_8.png"/></div>
         <div class="squarebtn ${model.input.tripEditAdd.walking ? 'active' : ''}" onClick="tripEdit_toggle('Walking')"><img src="../images/Directions_Walk_Icon_2.png"/></div>
@@ -266,6 +278,7 @@ function viewMarkings_editmode() {
     `;
 }
 
-function view_imgMap_edit() {
+function view_imgMap_edit()
+{
     document.getElementById('map_image').innerHTML = `<img id="mapIMG" class="mapIMG" src="${model.input.tripEditAdd.map}" />`;
 }

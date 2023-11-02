@@ -13,7 +13,7 @@ function dataExample_generate() {
         Et greit og fint terreng, men enkelte bratte lier med noe steinete underlag, må man beregne på turen. Ellers mye bra og god sti. På en liten del av løypa forekommer enkelte bløte partier, men dette er minimalt.
         
         Nå du har gått ca 1,2 km kommer du til et stidele. Denne stien går mot venstre, sammen med stien til Vannverket. Stien er godt merket og skiltet. Hele turen er på ca 2,2 km og tar ca en time.`,
-        location: 'Vestfold og Telemark, Porsgrunn',
+        location: 'Telemark & Vestfold, Porsgrunn',
         distance: 2.2,        //number
         time: 60,            //number
         image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/vgpssg7fmfqmro2whsm1'],          //src/link
@@ -52,6 +52,7 @@ function img_map_update() {
     const img_map = document.getElementById('img_map');
     const img_file = img_map.files[0];
     let img_srclink = URL.createObjectURL(img_file);
+    let src_link_string = '' + URL.createObjectURL(img_file);
     document.getElementById('mapIMG').src = img_srclink;
 }
 
@@ -90,4 +91,15 @@ function ToggleEditMode() {
     }
 
     getHTML_turViewMode();
+}
+
+function editMode_onChange() {
+    model.input.tripEditAdd.name = document.getElementById('trip_name').value;
+    model.input.tripEditAdd.location = document.getElementById('trip_location').value;
+    model.input.tripEditAdd.accessability = document.getElementById('trip_accessability').value;
+    model.input.tripEditAdd.distance = document.getElementById('trip_distance').value;
+    model.input.tripEditAdd.time = document.getElementById('trip_time').value;
+    model.input.tripEditAdd.season = document.getElementById('trip_season').value;
+    model.input.tripEditAdd.difficulty = document.getElementById('trip_difficulty').value;
+    model.input.tripEditAdd.about = document.getElementById('trip_about').value;
 }
