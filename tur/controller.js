@@ -52,7 +52,9 @@ function img_map_update() {
     const img_map = document.getElementById('img_map');
     const img_file = img_map.files[0];
     let img_srclink = URL.createObjectURL(img_file);
+    let src_link_string = '' + URL.createObjectURL(img_file);
     document.getElementById('mapIMG').src = img_srclink;
+    model.input.tripEditAdd.map = document.getElementById('mapIMG').src;
 
 }
 function img_trip_update() {
@@ -60,6 +62,7 @@ function img_trip_update() {
     const img_file = img_trip.files[0];
     let img_srclink = URL.createObjectURL(img_file);
     document.getElementById('tripIMG').src = img_srclink;
+    model.input.tripEditAdd.image = document.getElementById('tripIMG').src;
 
 }
 
@@ -90,4 +93,15 @@ function ToggleEditMode() {
     }
 
     getHTML_turViewMode();
+}
+
+function editMode_onChange() {
+    model.input.tripEditAdd.name = document.getElementById('trip_name').value;
+    model.input.tripEditAdd.location = document.getElementById('trip_location').value;
+    model.input.tripEditAdd.accessability = document.getElementById('trip_accessability').value;
+    model.input.tripEditAdd.distance = document.getElementById('trip_distance').value;
+    model.input.tripEditAdd.time = document.getElementById('trip_time').value;
+    model.input.tripEditAdd.season = document.getElementById('trip_season').value;
+    model.input.tripEditAdd.difficulty = document.getElementById('trip_difficulty').value;
+    model.input.tripEditAdd.about = document.getElementById('trip_about').value;
 }
