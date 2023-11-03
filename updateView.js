@@ -1,9 +1,7 @@
-function updateview()
-{
+function updateview() {
     getHTML_header();
     const hvasomhelst = model.app.currentPage;
-    switch (hvasomhelst)
-    {
+    switch (hvasomhelst) {
         case 'main':
             viewTrails();
             console.log('switch result:Trips')
@@ -33,9 +31,10 @@ function updateview()
             break;
     }
 }
-
-function goToSite(site)
-{
+function goToSite(site) {
+    if (site !== 'createUser') {
+        model.input.addEdit = false;
+    }
     model.app.currentPage = site;
     updateview();
 }
