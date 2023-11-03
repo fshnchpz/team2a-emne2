@@ -77,10 +77,21 @@ function getTrailCard(tur_id)
         return trail.id === tur_id;
     });
 
+    let isFavorite = false;
+    if (model.app.currentUser.length > 0) {
+        const curUser = model.data.users.find(User => {
+            return User.username === model.app.currentUser;
+        });
+
+        if (curUser.favorites.includes(trip.id)) {
+            isFavorite = true;
+        }
+    }
+
     let html = /*html*/ `
         <div class="card" onClick="turView_openCard(${trip.id})">
             <div class="prev_image" style="background: url('${trip.image[0]}') no-repeat; background-size: 100% auto;">
-                <img class="star"/>
+                <div class="favIco" onclick="toggleFavorite(${trip.id})"><img src="${isFavorite ? '../images/Star_4_yellow.png' : '../images/Star_4.png'}" class="star"/></div>
             </div>
             <div class="card_location">
                 <div class="municipality">${trip.location}</div>

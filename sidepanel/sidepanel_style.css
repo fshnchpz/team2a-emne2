@@ -15,6 +15,7 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 	font-family: "Poppins";
+	z-index: 1;
 }
 
 .side_panel_divider {

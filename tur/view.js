@@ -58,7 +58,7 @@ function getHTML_turViewMode()
 
                         <div class="tur_OmTur">
                             <div class="text">Om turen</div>
-                            <div class="${isFavorite ? 'isFavorite' : 'favorite'}"></div>
+                            <div onclick="toggleFavorite(${trip.id})" class="${isFavorite ? 'isFavorite' : 'favorite'}"></div>
                         </div>
 
                         <div class="details">
