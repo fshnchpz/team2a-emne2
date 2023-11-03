@@ -312,43 +312,43 @@ const model = {
         },
         {
             id: 9,
-            name: '',
-            about: ``,
-            location: '',
-            distance: 1,        //number
-            time: 15,            //number
-            image: [],          //src/link
-            season: '',
-            accessability: '',
-            map: '',            //src/link
-            difficulty: 0,      //number
+            name: 'Mørehovda',
+            about: `Fra fjellstua; gå tilbake til Bergsjøvegen. Rett før brua tek du inn på stigen til høgre. Denne følgjer du i ca 1,7 km. Då tek du stigen til høgre, som fører deg opp til Mørehovda. Fleire stader må du krysse små bekkar og eit lite parti er noko myrlendt, så bruk gode sko. Frå Mørehovda har du flott utsikt til omkringliggande områder, mellom anna Reineskarvet.`,
+            location: 'Møre & Romsdal, Skarvheimen, Hallingdal',
+            distance: 4.3,        //number
+            time: 120,            //number
+            image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/vgjt7p9pau1oclyltdrm'],          //src/link
+            season: 'Hele året',
+            accessability: 'Middels krevende fottur',
+            map: '../images/turmap1.png',            //src/link
+            difficulty: 5,      //number
             parking: false,         //boolean
-            walking: false,        //boolean
+            walking: true,        //boolean
             wheelchair: false,      //boolean
             bike: false,           //boolean
-            google_link: '',     //src/link
-            creator: '',
-            approved: false,
+            google_link: 'https://www.google.com/maps/dir//60.716132417,8.291792566',     //src/link
+            creator: 'admin',
+            approved: true,
         },
         {
             id: 10,
-            name: '',
-            about: ``,
-            location: '',
-            distance: 1,        //number
-            time: 15,            //number
-            image: [],          //src/link
-            season: '',
-            accessability: '',
-            map: '',            //src/link
-            difficulty: 0,      //number
-            parking: false,         //boolean
-            walking: false,        //boolean
-            wheelchair: false,      //boolean
-            bike: false,           //boolean
-            google_link: '',     //src/link
-            creator: '',
-            approved: false,
+            name: 'Jultonåsen og Egneråsen',
+            about: `I Grindbakkveien ved Vølner i Sørum går en skogsvei opp i skogen. Skogsveien er stengt med bom, hvor det kan parkeres for noen biler. Etter å ha gått skogsveien et lite stykke, går en merket sti av mot høyre og følger en jordekant til skogkanten. Stien fortsetter til toppen av Jultonåsen hvor det står en flott gapahuk og fantastisk utsikt vestov...`,
+            location: 'Akershus Øst',
+            distance: 5.8,        //number
+            time: 150,            //number
+            image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/ysjodgonyunwtmrplqot'],          //src/link
+            season: 'Mar - nov',
+            accessability: 'Enkel fottur',
+            map: '../images/turmap1.png',            //src/link
+            difficulty: 1,      //number
+            parking: true,         //boolean
+            walking: true,        //boolean
+            wheelchair: true,      //boolean
+            bike: true,           //boolean
+            google_link: 'https://www.google.com/maps/dir//60.049947,11.266898/@60.0498684,11.1844826,12z?entry=ttu',     //src/link
+            creator: 'admin',
+            approved: true,
         },],
     },
 };
