@@ -80,7 +80,7 @@ const model = {
                 {
                     admin: false,           //boolean
                     name: "Chuck Norris",
-                    username: "user5",
+                    username: "user4",
                     password: "1234",
                     location: "AMERICA!",
                     favorites: [1, 2, 3],     //trip id
