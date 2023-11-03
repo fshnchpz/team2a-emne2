@@ -80,10 +80,6 @@ body::-webkit-scrollbar {
     right: 7px;
     top: 7px;
     cursor: pointer;
-    opacity: 0.3;
-}
-.prev_image > .favIco:hover {
-    opacity: 1;
 }
 
 .cardContainer > .grid {
