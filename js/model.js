@@ -312,21 +312,23 @@ const model = {
         },
         {
             id: 9,
-            name: 'Mørehovda',
-            about: `Fra fjellstua; gå tilbake til Bergsjøvegen. Rett før brua tek du inn på stigen til høgre. Denne følgjer du i ca 1,7 km. Då tek du stigen til høgre, som fører deg opp til Mørehovda. Fleire stader må du krysse små bekkar og eit lite parti er noko myrlendt, så bruk gode sko. Frå Mørehovda har du flott utsikt til omkringliggande områder, mellom anna Reineskarvet.`,
-            location: 'Møre & Romsdal, Skarvheimen, Hallingdal',
-            distance: 4.3,        //number
-            time: 120,            //number
-            image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/vgjt7p9pau1oclyltdrm'],          //src/link
-            season: 'Hele året',
-            accessability: 'Middels krevende fottur',
+            name: 'Naushornet fra Veltdalshytta',
+            about: `Start fra Veltdalshytta på ruta til Reindalseter via Huldrekoppen. Ved østenden av Langfonnvatnet, 
+            drei mot nord og sikt deg inn på det laveste punktet mellom Naushornet og høyde 1848. Følg ryggen til topps. Retur samme vei.
+            Om man ikke ønsker å gå over snøfeltet kan man passere Langfonnvatnet og dreie mot sørryggen opp til høyde 1848.`,
+            location: 'Møre & Romsdal, Tafjordfjella og Reinheimen',
+            distance: 10.9,        //number
+            time: 240,            //number
+            image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/kegne5hcqelxoiwz27az'],          //src/link
+            season: 'Jun - Sep',
+            accessability: 'Krevende fottur',
             map: '../images/turmap1.png',            //src/link
-            difficulty: 5,      //number
-            parking: false,         //boolean
+            difficulty: 8,      //number
+            parking: true,         //boolean
             walking: true,        //boolean
             wheelchair: false,      //boolean
-            bike: false,           //boolean
-            google_link: 'https://www.google.com/maps/dir//60.716132417,8.291792566',     //src/link
+            bike: true,           //boolean
+            google_link: 'https://www.google.com/maps/dir//62.159494489,7.720366453',     //src/link
             creator: 'admin',
             approved: true,
         },

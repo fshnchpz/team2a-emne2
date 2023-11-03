@@ -50,3 +50,37 @@ function addMyTripsList() {
 
     //utgang punktet skal det sjekke trip sin creator, så nå har vi redundant model variabel
 }
+
+
+function editProfileDetails() {
+    if (model.app.currentUser !== '') {
+        let currentUser;
+        for (let user of model.data.users) {
+            if (showUser(user) === undefined) {
+            } else {
+                currentUser = showUser(user);
+            };
+        }
+        model.input.loginDetails = {
+            admin: currentUser.admin,
+            name: currentUser.name,
+            userName: currentUser.username,
+            password: currentUser.password,
+            location: currentUser.location,
+            favorites: currentUser.favorites,
+            myTrips: currentUser.myTrips,
+        };
+        model.input.addEdit = true;
+        goToSite('createUser');
+    } else {
+        return;
+    }
+}
+
+function showUser(user) {
+    for (let i = 0; i < model.data.users.length; i++) {
+        if (user.username === model.app.currentUser) {
+            return user;
+        }
+    }
+}
