@@ -188,19 +188,79 @@ function carousel_previous() {
     goCardPage(page);
 }
 
+function filterChanged() {
+    const input_Parkering = document.getElementById('Parkering').checked;
+    const input_Fottur = document.getElementById('Fottur').checked;
+    const input_Sykkel = document.getElementById('Sykkel').checked;
+    const input_Rullestol = document.getElementById('Rullestol').checked;
 
+    if (input_Parkering) {
+        model.input.sorting.parking = true;
+    } else {
+        model.input.sorting.parking = false;
+    }
+    if (input_Fottur) {
+        model.input.sorting.walking = true;
+    } else {
+        model.input.sorting.walking = false;
+    }
+    if (input_Sykkel) {
+        model.input.sorting.bike = true;
+    } else {
+        model.input.sorting.bike = false;
+    }
+    if (input_Rullestol) {
+        model.input.sorting.wheelchair = true;
+    } else {
+        model.input.sorting.wheelchair = false;
+    }
+
+    filterUpdate();
+}
 
 
 
 function filterUpdate() {
     const sorting = model.input.sorting;
     sorting.trips = [];
+
+    
+    const input_Parkering = model.input.sorting.parking;
+    const input_Fottur = model.input.sorting.walking;
+    const input_Sykkel = model.input.sorting.bike;
+    const input_Rullestol = model.input.sorting.wheelchair;
+
     //model.input.sorting.trips <--
     //sorting.location = 'Oslo'
     //model.data.trips = [] <- liste på alle turer
-    sorting.trips = model.data.trips.filter( (tur) => tur.location.includes(sorting.location) )
+    sorting.trips = model.data.trips; //Lager en kopy av model.data.trips og legger det inn i sorting.trips
+    
 
-    //.includes("FylkeNavn")
+    //Her starter vi å filtere gjennom sorting.trips
+    if (sorting.location != 'Alle Fylker') {
+        sorting.trips = sorting.trips.filter( (tur) =>  tur.location.includes(sorting.location) )
+        sorting.enabled = true;
+    }
+    if (input_Parkering) {
+        sorting.trips = sorting.trips.filter( (tur) =>  tur.parking == true);
+        sorting.enabled = true;
+    }
+    if (input_Fottur) {
+        sorting.trips = sorting.trips.filter( (tur) =>  tur.walking == true);
+        sorting.enabled = true;
+    }
+    if (input_Sykkel) {
+        sorting.trips = sorting.trips.filter( (tur) =>  tur.bike == true);
+        sorting.enabled = true;
+    }
+    if (input_Rullestol) {
+        sorting.trips = sorting.trips.filter( (tur) =>  tur.wheelchair == true);
+        sorting.enabled = true;
+    }
 
-    //Liste på turer som skal vises, skal putte inn turer som tilhører filtrene
+    if (sorting.location == 'Alle Fylker' && !sorting.parking && !sorting.walking && !sorting.bike && !sorting.wheelchair) {
+        sorting.enabled = false;
+    }
+
+    viewTrails();
 }

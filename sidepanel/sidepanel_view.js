@@ -36,16 +36,16 @@ function sidepanel_view_Trails() {
         <div class="snap_bottom">
             <div class="goLeft">
                 <div class="inputPreview">
-                    <div class="checkdiv"><input type="checkbox" class="css-checkbox" name="Parkering" id="Parkering" value="Parkering">
+                    <div class="checkdiv"><input type="checkbox" onchange="filterChanged()" class="css-checkbox" name="Parkering" id="Parkering" value="Parkering" ${model.input.sorting.parking ? 'checked' : ''}>
                     <label class="checkLabel" for="Parkering">Parkering</label><img class="sp_img" src="../images/Local_Parking_Icon_8.png"/></div>
                     
                     <div class="side_panel_divider"></div>
 
-                    <div class="checkdiv"><input type="checkbox" class="css-checkbox" name="Fottur" id="Fottur" value="Fottur">
+                    <div class="checkdiv"><input type="checkbox" onchange="filterChanged()" class="css-checkbox" name="Fottur" id="Fottur" value="Fottur" ${model.input.sorting.walking ? 'checked' : ''}>
                     <label class="checkLabel" for="Fottur">Fottur</label><img class="sp_img" src="../images/Directions_Walk_Icon_2.png"/></div>
-                    <div class="checkdiv"><input type="checkbox" class="css-checkbox" name="Sykkel" id="Sykkel" value="Sykkel">
+                    <div class="checkdiv"><input type="checkbox" onchange="filterChanged()" class="css-checkbox" name="Sykkel" id="Sykkel" value="Sykkel" ${model.input.sorting.bike ? 'checked' : ''}>
                     <label class="checkLabel" for="Sykkel">Sykkel</label><img class="sp_img" src="../images/Directions_Bike_Icon_1.png"/></div>
-                    <div class="checkdiv"><input type="checkbox" class="css-checkbox" name="Rullestol" id="Rullestol" value="Rullestol">
+                    <div class="checkdiv"><input type="checkbox" onchange="filterChanged()" class="css-checkbox" name="Rullestol" id="Rullestol" value="Rullestol" ${model.input.sorting.wheelchair ? 'checked' : ''} >
                     <label class="checkLabel" for="Rullestol">Rullestol</label><img class="sp_img" src="../images/Accessible_Icon_8.png"/></div>
                 </div>
             </div>
@@ -95,14 +95,6 @@ function sidepanel_view_TurView() {
 function filter_fylke(fylke) {
     model.input.sorting.location = fylke;
     filterUpdate();
-
-    if (fylke != "Alle Fylker") {
-        model.input.sorting.enabled = true;
-    }
-    else {
-        model.input.sorting.enabled = false;
-    }
-    viewTrails();
 
     //oppdatere view
 
