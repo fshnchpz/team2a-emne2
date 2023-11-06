@@ -104,7 +104,7 @@ const model = {
                     Rognlifjell (961 moh) kan by på kanskje Lifjells mest spektakulære utsikt! 
                     Rognlifjell ligger på Lifjell og er kjent som «føttene til Lifjellmannen» der Trogafjell er «hodet».
                     Notodden og Hjartdal Turlag har skiltet og merket mesteparten av Lifjell svært godt og har på toppen av Rognlifjell en klassisk rød DNT-turkasse.`,
-            location: 'Oslo, blabla potetveg 1',
+            location: 'Oslo, Blabla Potetveg 1',
             accessability: 'Enkel fottur',
             distance: 5.0,        //number
             time: 180,            //number
