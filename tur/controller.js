@@ -40,7 +40,7 @@ function ToggleEditMode() {
         inputs.location = '';
         inputs.distance = '';
         inputs.time = '';
-        inputs.image.length = 0;
+        inputs.image = [];
         inputs.season = '';
         inputs.accessability = '';
         inputs.map = '';
