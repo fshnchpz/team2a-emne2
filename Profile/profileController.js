@@ -73,7 +73,7 @@ function editProfileDetails() {
         model.input.addEdit = true;
         goToSite('createUser');
     } else {
-        return;
+        goToSite('login')
     }
 }
 
@@ -83,4 +83,10 @@ function showUser(user) {
             return user;
         }
     }
+}
+
+function add_trip() {
+    model.data.isNew = true;
+    turView_openCard(0);
+    ToggleEditMode();
 }

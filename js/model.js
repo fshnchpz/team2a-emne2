@@ -45,6 +45,7 @@ const model = {
         },
     },
     data: {
+        isNew: false,
         mainPage: [{
             carouselIndex: 0,
         }],
@@ -312,11 +313,11 @@ const model = {
         },
         {
             id: 9,
-            name: 'Naushornet fra Veltdalshytta',
+            name: 'Naushornet',
             about: `Start fra Veltdalshytta på ruta til Reindalseter via Huldrekoppen. Ved østenden av Langfonnvatnet, 
             drei mot nord og sikt deg inn på det laveste punktet mellom Naushornet og høyde 1848. Følg ryggen til topps. Retur samme vei.
             Om man ikke ønsker å gå over snøfeltet kan man passere Langfonnvatnet og dreie mot sørryggen opp til høyde 1848.`,
-            location: 'Møre & Romsdal, Tafjordfjella og Reinheimen',
+            location: 'Møre & Romsdal, Tafjordfjella',
             distance: 10.9,        //number
             time: 240,            //number
             image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/kegne5hcqelxoiwz27az'],          //src/link
@@ -351,7 +352,31 @@ const model = {
             google_link: 'https://www.google.com/maps/dir//60.049947,11.266898/@60.0498684,11.1844826,12z?entry=ttu',     //src/link
             creator: 'admin',
             approved: true,
-        },],
+        },
+        {
+            id: 11,
+            name: 'Valleråsen',
+            about: `Blåmerket sti starter rett inn ved Jernbaneundergangen like nord for parkeringa, bak bygget til Misjon uten grenser. Her inne står en informasjonstavle med kartoversikt over løypemuligheter og ulike severdigheter innover i marka. Den første delen av løypa - opp lia - følger starten på den gamle presteveien mot Siljan, gjennom Bjørkedalen.
+
+        Et greit og fint terreng, men enkelte bratte lier med noe steinete underlag, må man beregne på turen. Ellers mye bra og god sti. På en liten del av løypa forekommer enkelte bløte partier, men dette er minimalt.
+        
+        Nå du har gått ca 1,2 km kommer du til et stidele. Denne stien går mot venstre, sammen med stien til Vannverket. Stien er godt merket og skiltet. Hele turen er på ca 2,2 km og tar ca en time.`,
+            location: 'Telemark & Vestfold, Porsgrunn',
+            distance: 2.2,        //number
+            time: 60,            //number
+            image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/vgpssg7fmfqmro2whsm1'],          //src/link
+            season: 'April - November',
+            accessability: 'Enkel fottur, går en veg fra A til B',
+            map: '../images/turmap1.png',            //src/link
+            google_link: 'https://www.google.com/maps/dir//59.124754239,9.705845732',    //googlemap link
+            difficulty: 4,      //number
+            parking: true,         //boolean
+            walking: true,        //boolean
+            wheelchair: false,      //boolean
+            bike: false,           //boolean
+            creator: 'admin',
+            approved: true,
+        }],
     },
 };
 

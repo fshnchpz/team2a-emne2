@@ -1,10 +1,8 @@
 
 "use strict"
 
-function turView_openCard(card_id)
-{
-    const trip = model.data.trips.find(trail =>
-    {
+function turView_openCard(card_id) {
+    const trip = model.data.trips.find(trail => {
         return trail.id === card_id;
     });
 
@@ -12,20 +10,17 @@ function turView_openCard(card_id)
     getHTML_turViewMode();
 }
 
-function getHTML_turViewMode()
-{
+function getHTML_turViewMode() {
     let HTML = ``;
 
     model.app.sidepanel_mode = 'turView';
 
     //Hent ingenting hvis en tur ikke er valgt
-    if (model.app.currentTrip === null)
-    {
+    if (model.app.currentTrip === null) {
         return;
     }
 
-    const trip = model.data.trips.find(trail =>
-    {
+    const trip = model.data.trips.find(trail => {
         return trail.id === model.app.currentTrip;
     });
 
@@ -36,12 +31,10 @@ function getHTML_turViewMode()
             return User.username === model.app.currentUser;
         });
 
-        if (curUser.favorites.includes(trip.id))
-        {
+        if (curUser.favorites.includes(trip.id)) {
             isFavorite = true;
         }
-    } else
-    {
+    } else {
         isFavorite = false;
     }
 
@@ -223,18 +216,14 @@ function getHTML_turViewMode()
 }
 
 
-function getMapIMG()
-{
-    const trip = model.data.trips.find(trail =>
-    {
+function getMapIMG() {
+    const trip = model.data.trips.find(trail => {
         return trail.id === model.app.currentTrip;
     });
-    if (trip.map != '')
-    {
+    if (trip.map != '') {
         return `<img id="mapIMG" class="mapIMG" src="${trip.map}"/>`;
     }
-    else
-    {
+    else {
         return '';
     }
 }
@@ -242,34 +231,58 @@ function getMapIMG()
 let imageNumber = 0;
 
 function getTripIMG() {
-    const trip = model.data.trips.find(trail => {
-        return trail.id === model.app.currentTrip;
-    });
-    if (model.input.addEdit) {
-        if (imageNumber > model.input.tripEditAdd.image.length) {
-            imageNumber = 0;
+    if (model.data.isNew) {
+        const trip = model.input.tripEditAdd;
+        if (model.input.addEdit) {
+            if (imageNumber > model.input.tripEditAdd.image.length) {
+                imageNumber = 0;
+            }
+            if (imageNumber < 0) {
+                imageNumber = model.input.tripEditAdd.image.length;
+            }
+        } else {
+            if (imageNumber >= trip.image.length) {
+                imageNumber = 0;
+            }
+            if (imageNumber < 0) {
+                imageNumber = trip.image.length - 1;
+            }
         }
-        if (imageNumber < 0) {
-            imageNumber = model.input.tripEditAdd.image.length;
-        }
-    } else {
-        if (imageNumber >= trip.image.length) {
-            imageNumber = 0;
-        }
-        if (imageNumber < 0) {
-            imageNumber = trip.image.length - 1;
-        }
-    }
 
-    if (trip.image[imageNumber] === undefined) {
-        return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`
+        if (trip.image[imageNumber] === undefined) {
+            return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`
+        } else {
+            return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="${trip.image[imageNumber]}"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`;
+        }
     } else {
-        return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="${trip.image[imageNumber]}"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`;
+        const trip = model.data.trips.find(trail => {
+            return trail.id === model.app.currentTrip;
+        });
+        if (model.input.addEdit) {
+            if (imageNumber > model.input.tripEditAdd.image.length) {
+                imageNumber = 0;
+            }
+            if (imageNumber < 0) {
+                imageNumber = model.input.tripEditAdd.image.length;
+            }
+        } else {
+            if (imageNumber >= trip.image.length) {
+                imageNumber = 0;
+            }
+            if (imageNumber < 0) {
+                imageNumber = trip.image.length - 1;
+            }
+        }
+
+        if (trip.image[imageNumber] === undefined) {
+            return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`
+        } else {
+            return `<div onclick="imageNumber--, getHTML_turViewMode();">◀</div><div class="imageOverlay"><img id="tripIMG" class="tripIMG" src="${trip.image[imageNumber]}"/></div><div onclick="imageNumber++, getHTML_turViewMode()">▶</div>`;
+        }
     }
 }
 
-function viewMarkings_editmode()
-{
+function viewMarkings_editmode() {
     document.getElementById('marking_box').innerHTML = `
         <div class="squarebtn ${model.input.tripEditAdd.parking ? 'active' : ''}" onClick="tripEdit_toggle('Parking')"><img src="../images/Local_Parking_Icon_8.png"/></div>
         <div class="squarebtn ${model.input.tripEditAdd.walking ? 'active' : ''}" onClick="tripEdit_toggle('Walking')"><img src="../images/Directions_Walk_Icon_2.png"/></div>
@@ -278,7 +291,6 @@ function viewMarkings_editmode()
     `;
 }
 
-function view_imgMap_edit()
-{
+function view_imgMap_edit() {
     document.getElementById('map_image').innerHTML = `<img id="mapIMG" class="mapIMG" src="${model.input.tripEditAdd.map}" />`;
 }

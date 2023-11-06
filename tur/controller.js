@@ -1,37 +1,4 @@
 
-function dataExample_generate() {
-    model.input.addEdit = false;
-
-    //nye modell properties:
-    // google_link: '',    //googlemap link
-
-    let testTrip = {
-        id: 11,
-        name: 'Valleråsen',
-        about: `Blåmerket sti starter rett inn ved Jernbaneundergangen like nord for parkeringa, bak bygget til Misjon uten grenser. Her inne står en informasjonstavle med kartoversikt over løypemuligheter og ulike severdigheter innover i marka. Den første delen av løypa - opp lia - følger starten på den gamle presteveien mot Siljan, gjennom Bjørkedalen.
-
-        Et greit og fint terreng, men enkelte bratte lier med noe steinete underlag, må man beregne på turen. Ellers mye bra og god sti. På en liten del av løypa forekommer enkelte bløte partier, men dette er minimalt.
-        
-        Nå du har gått ca 1,2 km kommer du til et stidele. Denne stien går mot venstre, sammen med stien til Vannverket. Stien er godt merket og skiltet. Hele turen er på ca 2,2 km og tar ca en time.`,
-        location: 'Telemark & Vestfold, Porsgrunn',
-        distance: 2.2,        //number
-        time: 60,            //number
-        image: ['https://res.cloudinary.com/ntb/image/upload/w_1280,q_80/v1/trips/vgpssg7fmfqmro2whsm1'],          //src/link
-        season: 'April - November',
-        accessability: 'Enkel fottur, går en veg fra A til B',
-        map: '../images/turmap1.png',            //src/link
-        google_link: 'https://www.google.com/maps/dir//59.124754239,9.705845732',    //googlemap link
-        difficulty: 4,      //number
-        parking: true,         //boolean
-        walking: true,        //boolean
-        wheelchair: false,      //boolean
-        bike: false,           //boolean
-        creator: 'admin',
-        approved: true,
-    };
-    model.data.trips.unshift(testTrip);
-}
-
 function tripEdit_toggle(marking) {
     if (marking == 'Parking') {
         model.input.tripEditAdd.parking = !model.input.tripEditAdd.parking;
@@ -66,30 +33,45 @@ function img_trip_update() {
 
 function ToggleEditMode() {
     model.input.addEdit = !model.input.addEdit;
-
-    const trip = model.data.trips.find(trail => {
-        return trail.id === model.app.currentTrip;
-    });
     const inputs = model.input.tripEditAdd;
-
-    if (model.input.addEdit) {
-        inputs.name = trip.name;
-        inputs.about = trip.about;
-        inputs.location = trip.location;
-        inputs.distance = trip.distance;
-        inputs.time = trip.time;
-        inputs.image = trip.image;
-        inputs.season = trip.season;
-        inputs.accessability = trip.accessability;
-        inputs.map = trip.map;
-        inputs.difficulty = trip.difficulty;
-        inputs.parking = trip.parking;
-        inputs.walking = trip.walking;
-        inputs.wheelchair = trip.wheelchair;
-        inputs.bike = trip.bike;
-        inputs.google_link = trip.google_link;
+    if (model.data.isNew) {
+        inputs.name = '';
+        inputs.about = '';
+        inputs.location = '';
+        inputs.distance = '';
+        inputs.time = '';
+        inputs.image.length = 0;
+        inputs.season = '';
+        inputs.accessability = '';
+        inputs.map = '';
+        inputs.difficulty = '';
+        inputs.parking = false;
+        inputs.walking = false;
+        inputs.wheelchair = false;
+        inputs.bike = false;
+        inputs.google_link = '';
+    } else {
+        const trip = model.data.trips.find(trail => {
+            return trail.id === model.app.currentTrip;
+        });
+        if (model.input.addEdit) {
+            inputs.name = trip.name;
+            inputs.about = trip.about;
+            inputs.location = trip.location;
+            inputs.distance = trip.distance;
+            inputs.time = trip.time;
+            inputs.image = trip.image;
+            inputs.season = trip.season;
+            inputs.accessability = trip.accessability;
+            inputs.map = trip.map;
+            inputs.difficulty = trip.difficulty;
+            inputs.parking = trip.parking;
+            inputs.walking = trip.walking;
+            inputs.wheelchair = trip.wheelchair;
+            inputs.bike = trip.bike;
+            inputs.google_link = trip.google_link;
+        }
     }
-
     getHTML_turViewMode();
 }
 
