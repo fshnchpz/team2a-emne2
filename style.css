@@ -60,6 +60,7 @@ body::-webkit-scrollbar {
 .card:hover {
     background: #ffffff;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .card > .prev_image {
@@ -68,6 +69,18 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 0;
+}
+
+.prev_image > .favIco {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    cursor: pointer;
 }
 
 .cardContainer > .grid {

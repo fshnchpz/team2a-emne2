@@ -117,6 +117,7 @@
     width: 34px;
     background: url('../images/Star_4.png') no-repeat;
     background-size: cover;
+    cursor: pointer;
 }
 
 .tur_OmTur > .isFavorite {
@@ -126,6 +127,7 @@
     width: 34px;
     background: url('../images/Star_4_yellow.png') no-repeat;
     background-size: cover;
+    cursor: pointer;
 }
 
 .left > .details {

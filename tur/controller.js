@@ -86,3 +86,27 @@ function editMode_onChange() {
     model.input.tripEditAdd.about = document.getElementById('trip_about').value;
     model.input.tripEditAdd.google_link = document.getElementById('trip_googleLink').value;
 }
+
+function toggleFavorite(tur_id) {
+    if (model.app.currentUser.length > 0) {
+        const curUser = model.data.users.find(User => {
+            return User.username === model.app.currentUser;
+        });
+
+        let isFavorite = curUser.favorites.includes(tur_id); //true or false, om tur_id finnes i favorit listet i brukeren
+
+        if (isFavorite)
+        {
+            let indexOfFavoriteTur = curUser.favorites.findIndex( (fav) => fav == tur_id );
+            curUser.favorites.splice(indexOfFavoriteTur, 1);
+            getHTML_turViewMode();
+            //updateview();
+        }
+        else 
+        {
+            curUser.favorites.push(tur_id);
+            getHTML_turViewMode();
+            //updateview();
+        }
+    }
+}
