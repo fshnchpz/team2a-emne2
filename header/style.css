@@ -22,13 +22,14 @@
 
 /*Logg inn knappen*/
 .topMainLogInBtn {
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: center;
     width: 160px;
     height: 53px;
 
-    position: absolute;
+    position: fixed;
+    z-index: 3;
     margin-left: 1.5rem;
     margin-top: 1rem;
 

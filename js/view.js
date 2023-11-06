@@ -91,7 +91,7 @@ function getTrailCard(tur_id)
     let html = /*html*/ `
         <div class="card" onClick="turView_openCard(${trip.id})">
             <div class="prev_image" style="background: url('${trip.image[0]}') no-repeat; background-size: 100% auto;">
-                <div class="favIco" onclick="toggleFavorite(${trip.id})"><img src="${isFavorite ? '../images/Star_4_yellow.png' : '../images/Star_4.png'}" class="star"/></div>
+                <div class="favIco"><img src="${isFavorite ? '../images/Star_4_yellow.png' : '../images/Star_4.png'}" class="star"/></div>
             </div>
             <div class="card_location">
                 <div class="municipality">${trip.location}</div>

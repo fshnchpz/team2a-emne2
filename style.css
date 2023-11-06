@@ -60,6 +60,7 @@ body::-webkit-scrollbar {
 .card:hover {
     background: #ffffff;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .card > .prev_image {
