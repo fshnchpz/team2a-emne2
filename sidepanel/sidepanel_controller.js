@@ -1,15 +1,16 @@
 function saveEditMode() {
     const inputs = model.input.tripEditAdd;
-    let i = 0;
-    while (model.data.trips.some((trip) => trip.id === i)) {
-        i++;
-    };
-    let returnId = i;
-    const curUser = model.data.users.find(User => {
-        return User.username === model.app.currentUser;
-    });
-    curUser.myTrips.push(i);
+    
     if (model.data.isNew) {
+        let i = 0;
+        while (model.data.trips.some((trip) => trip.id === i)) {
+            i++;
+        };
+        let returnId = i;
+        const curUser = model.data.users.find(User => {
+            return User.username === model.app.currentUser;
+        });
+        curUser.myTrips.push(i);
         const newTrip = {
             id: returnId,
             name: inputs.name,
