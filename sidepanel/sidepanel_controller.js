@@ -29,7 +29,8 @@ function saveEditMode() {
             bike: inputs.bike,
             google_link: inputs.google_link,
         };
-        model.data.trips.push(newTrip);
+        let myNewTrip = JSON.parse(JSON.stringify(newTrip));
+        model.data.trips.push(myNewTrip);
         goToSite('profile');
         model.data.isNew = false;
     } else {
