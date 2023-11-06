@@ -51,9 +51,10 @@ function ToggleEditMode() {
         inputs.bike = false;
         inputs.google_link = '';
     } else {
-        const trip = model.data.trips.find(trail => {
+        const trip = JSON.parse(JSON.stringify(model.data.trips.find(trail => {
             return trail.id === model.app.currentTrip;
-        });
+        })));
+        
         if (model.input.addEdit) {
             inputs.name = trip.name;
             inputs.about = trip.about;

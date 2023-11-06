@@ -4,26 +4,32 @@ function updateview() {
     const hvasomhelst = model.app.currentPage;
     switch (hvasomhelst) {
         case 'main':
+            model.data.isNew = false;
             viewTrails();
             console.log('switch result:Trips')
             break;
         case 'profile':
+            model.data.isNew = false;
             profileView();
             console.log('switch result:Profile')
             break;
         case 'login':
+            model.data.isNew = false;
             loginSide();
             console.log('switch result:Login')
             break;
         case 'trips':
+            model.data.isNew = false;
             viewTrails();
             console.log('switch result:Trips')
             break;
         case 'createUser':
+            model.data.isNew = false;
             createUserpage();
             console.log('switch result:createUser')
             break;
         case 'members':
+            model.data.isNew = false;
             memberView();
             console.log('switch result:members')
             break;
