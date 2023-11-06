@@ -1,15 +1,16 @@
 function saveEditMode() {
     const inputs = model.input.tripEditAdd;
-    let i = 0;
-    while (model.data.trips.some((trip) => trip.id === i)) {
-        i++;
-    };
-    let returnId = i;
-    const curUser = model.data.users.find(User => {
-        return User.username === model.app.currentUser;
-    });
-    curUser.myTrips.push(i);
+    
     if (model.data.isNew) {
+        let i = 0;
+        while (model.data.trips.some((trip) => trip.id === i)) {
+            i++;
+        };
+        let returnId = i;
+        const curUser = model.data.users.find(User => {
+            return User.username === model.app.currentUser;
+        });
+        curUser.myTrips.push(i);
         const newTrip = {
             id: returnId,
             name: inputs.name,
@@ -28,7 +29,8 @@ function saveEditMode() {
             bike: inputs.bike,
             google_link: inputs.google_link,
         };
-        model.data.trips.push(newTrip);
+        let myNewTrip = JSON.parse(JSON.stringify(newTrip));
+        model.data.trips.push(myNewTrip);
         goToSite('profile');
         model.data.isNew = false;
     } else {
