@@ -4,7 +4,6 @@ function saveEditMode() {
     while (model.data.trips.some((trip) => trip.id === i)) {
         i++;
     };
-    console.log(i)
     let returnId = i;
     const curUser = model.data.users.find(User => {
         return User.username === model.app.currentUser;
@@ -31,6 +30,7 @@ function saveEditMode() {
         };
         model.data.trips.push(newTrip);
         goToSite('profile');
+        model.data.isNew = false;
     } else {
         const tur = model.data.trips.find(trail => {
             return trail.id === model.app.currentTrip;
