@@ -53,6 +53,8 @@ function saveEditMode() {
         tur.bike = inputs.bike;
         tur.google_link = inputs.google_link;
 
+        inputs = null;
+
         ToggleEditMode();
     }
 }
