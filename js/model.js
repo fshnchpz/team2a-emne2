@@ -91,7 +91,7 @@ const model = {
                     name: "Stephen Robert Irwin",
                     username: "user5",
                     password: "1234",
-                    location: "australia",
+                    location: "Australia",
                     favorites: [2, 6, 8],     //trip id
                     myTrips: [],
                 },
