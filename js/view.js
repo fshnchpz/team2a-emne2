@@ -90,7 +90,7 @@ function getTrailCard(tur_id)
 
     let html = /*html*/ `
         <div class="card" onClick="turView_openCard(${trip.id})">
-            <div class="prev_image" style="background: url('${trip.image[0]}') no-repeat; background-size: 100% auto;">
+            ${trip.image.length === 0 ? `<div class="prev_image" style="background: url('https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg') no-repeat; background-size: 100% auto;">` : `<div class="prev_image" style="background: url('${trip.image[0]}') no-repeat; background-size: 100% auto;">`}
                 <div class="favIco"><img src="${isFavorite ? '../images/Star_4_yellow.png' : '../images/Star_4.png'}" class="star"/></div>
             </div>
             <div class="card_location">
