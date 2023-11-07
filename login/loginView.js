@@ -65,7 +65,7 @@ function tryToLogIn()
     else
     {
         model.app.currentUser = '';
-        // updateview();
+        updateview();
     }
 }
 
