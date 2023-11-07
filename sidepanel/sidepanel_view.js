@@ -79,7 +79,7 @@ function sidepanel_view_TurView() {
             
             <!-- Sjekker om man er i edit mode, så vises Lagre knappen -->
             ${model.input.addEdit ? '<div class="sidepanel_btn green" onclick="saveEditMode()">Lagre</div>' : ''}
-            <div class="sidepanel_btn" onclick="ToggleEditMode()">${!model.input.addEdit ? 'Rediger' : 'Avbryt'}</div>
+            ${model.app.admin ? `<div class="sidepanel_btn" onclick="ToggleEditMode()">${!model.input.addEdit ? 'Rediger' : 'Avbryt'}</div>` : ''}
         </div>
         <div class="snap_bottom">
             <div class="side_panel_divider"></div>
