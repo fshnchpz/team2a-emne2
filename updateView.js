@@ -1,6 +1,5 @@
 function updateview() {
     getHTML_header();
-    model.input.addEdit = false;
     const hvasomhelst = model.app.currentPage;
     switch (hvasomhelst) {
         case 'main':
