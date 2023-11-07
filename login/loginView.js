@@ -51,8 +51,8 @@ function logIn()
     {
         errorMessage = 'Ditt brukernavn eller passord er feil';
         console.log("username and/or password is wrong");
+        updateview();
     }
-    updateview();
 }
 
 // når man trykker på logginknapp oppe til venstere
