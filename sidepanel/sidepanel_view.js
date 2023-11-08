@@ -57,7 +57,7 @@ function sidepanel_view_Trails() {
 
 function getFylkeOptions() {
     let HTML = ``;
-    const Fylker = ['Alle Fylker','Telemark & Vestfold','Akershus','Oslo','Vestland','Rogaland','Trøndelag','Innlandet','Agder','Østfold','Møre & Romsdal', 'Buskerud','Nordland','Troms','Finnmark'];
+    const Fylker = ['Alle Fylker','Agder','Akershus','Buskerud', 'Finnmark', 'Innlandet', 'Møre & Romsdal', 'Nordland', 'Oslo', 'Rogaland', 'Telemark & Vestfold','Troms','Trøndelag', 'Vestland', 'Østfold'];
     
     for (let i = 0; i < Fylker.length; i++){
         HTML += `<option value="${Fylker[i]}" ${model.input.sorting.location == Fylker[i] ? 'selected' : ''}>${Fylker[i]}</option>`;
