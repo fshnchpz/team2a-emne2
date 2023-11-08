@@ -188,4 +188,7 @@ body::-webkit-scrollbar {
 	background: #9b9b9b;
 }
 
+.green {
+    background-color: #4C7A34 !important;
+}
 /* End of Trails Styles */

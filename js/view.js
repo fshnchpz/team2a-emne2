@@ -59,7 +59,7 @@ function showPageNumber()
     for (let i = 0; i < pageCounter; i++)
     {
         pageNumber += /*HTML*/`
-            <div class="circle" onclick="goCardPage(${i})">${i + 1}</div>
+            <div class="circle ${i == tur_cardPage ? 'green':''}" onclick="goCardPage(${i})">${i + 1}</div>
         `;
     }
     return pageNumber;
